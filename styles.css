@@ -127,6 +127,24 @@ body {
 }
 .btn-lateral-connexion:hover { background: #0056cc; }
 
+.btn-lateral-inscription {
+    display: block;
+    width: 100%;
+    background: transparent;
+    color: #007bff;
+    border: 1.5px solid #007bff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    text-align: left;
+    margin-top: 10px;
+    box-sizing: border-box;
+    transition: background 0.2s, color 0.2s;
+}
+.btn-lateral-inscription:hover { background: #f0f4ff; }
+
 .btn-lateral-don {
     display: block;
     width: 100%;
