@@ -1,6 +1,7 @@
 // --- Importations Firebase ---
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged }
+    from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-analytics.js";
 
 // --- Configuration Firebase ---
@@ -20,40 +21,94 @@ const analytics = getAnalytics(app);
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 
-// --- Votre logique existante (Menu & Traduction) ---
+// =====================================================
+// MENU DÉROULANT (ligne bas — inchangé)
+// =====================================================
 const btnMenu = document.getElementById('btnMenu');
-const menu = document.getElementById('liens-deroulants');
+const menuNav = document.getElementById('liens-deroulants');
 
-btnMenu.onclick = function(e) {
-    menu.classList.toggle('voir');
-    e.stopPropagation();
-}
-
-window.onclick = function() {
-    menu.classList.remove('voir');
-}
-
-document.getElementById('select-langue').addEventListener('change', function() {
-    var lang = this.value;
-    var googleCombo = document.querySelector('.goog-te-combo');
-    if (googleCombo) {
-        googleCombo.value = lang;
-        googleCombo.dispatchEvent(new Event('change'));
-    }
-});
-
-// --- Logique de connexion Google ---
-const btnLogin = document.getElementById('btn-login');
-if (btnLogin) {
-    btnLogin.onclick = function() {
-        signInWithPopup(auth, provider)
-            .then((result) => {
-                alert("Bienvenue " + result.user.displayName);
-                btnLogin.innerText = "Déconnexion";
-            })
-            .catch((error) => {
-                console.error("Erreur :", error.message);
-                alert("Erreur de connexion.");
-            });
+if (btnMenu && menuNav) {
+    btnMenu.onclick = function(e) {
+        menuNav.classList.toggle('voir');
+        e.stopPropagation();
     };
 }
+
+window.addEventListener('click', function() {
+    if (menuNav) menuNav.classList.remove('voir');
+});
+
+// =====================================================
+// MENU LATÉRAL
+// =====================================================
+const btnOuvrir  = document.getElementById('btn-menu-lateral');
+const btnFermer  = document.getElementById('btn-fermer-lateral');
+const lateral    = document.getElementById('menu-lateral');
+const voile      = document.getElementById('voile');
+
+function ouvrirLateral() {
+    lateral.classList.add('ouvert');
+    voile.classList.add('actif');
+    document.body.style.overflow = 'hidden';
+}
+
+function fermerLateral() {
+    lateral.classList.remove('ouvert');
+    voile.classList.remove('actif');
+    document.body.style.overflow = '';
+}
+
+if (btnOuvrir) btnOuvrir.addEventListener('click', ouvrirLateral);
+if (btnFermer) btnFermer.addEventListener('click', fermerLateral);
+if (voile)     voile.addEventListener('click', fermerLateral);
+
+// Fermer avec Échap
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') fermerLateral();
+});
+
+// =====================================================
+// GOOGLE TRANSLATE — synchronisation avec le sélecteur
+// =====================================================
+const selectLangue = document.getElementById('select-langue');
+if (selectLangue) {
+    selectLangue.addEventListener('change', function() {
+        const lang = this.value;
+        const googleCombo = document.querySelector('.goog-te-combo');
+        if (googleCombo) {
+            googleCombo.value = lang;
+            googleCombo.dispatchEvent(new Event('change'));
+        }
+    });
+}
+
+// =====================================================
+// AUTHENTIFICATION FIREBASE
+// =====================================================
+const btnLogin = document.getElementById('btn-login');
+
+// Mise à jour du bouton selon l'état de connexion
+onAuthStateChanged(auth, (user) => {
+    if (btnLogin) {
+        if (user) {
+            btnLogin.textContent = '👤 ' + user.displayName.split(' ')[0] + ' — Déconnexion';
+            btnLogin.onclick = function() {
+                signOut(auth).then(() => {
+                    btnLogin.textContent = '🔑 Connexion';
+                });
+            };
+        } else {
+            btnLogin.textContent = '🔑 Connexion';
+            btnLogin.onclick = function() {
+                signInWithPopup(auth, provider)
+                    .then((result) => {
+                        alert("Bienvenue, " + result.user.displayName + " !");
+                    })
+                    .catch((error) => {
+                        console.error("Erreur de connexion :", error.message);
+                        alert("Erreur de connexion. Veuillez réessayer.");
+                    });
+            };
+        }
+    }
+});
