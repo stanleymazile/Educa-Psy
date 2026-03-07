@@ -51,7 +51,7 @@ if (form) {
         const email    = document.getElementById('email')?.value.trim();
         const password = document.getElementById('password')?.value;
 
-        // La validation côté client est gérée dans signup.html
+        // La validation côté client est gérée dans inscription.html
         // On vérifie juste que les champs sont remplis avant l'appel Firebase
         if (!email || !password) return;
 
@@ -86,4 +86,3 @@ if (btnGoogle) {
         }
     });
 }
-
