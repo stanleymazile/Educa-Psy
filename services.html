@@ -7,15 +7,53 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+    <div id="voile" class="voile"></div>
+
+    <aside id="menu-lateral" class="menu-lateral">
+        <button id="btn-fermer-lateral" class="btn-fermer-lateral">✕</button>
+        <div class="lateral-section">
+            <label class="lateral-label">🌐 Langue</label>
+            <select id="select-langue">
+                <option value="fr">FRANÇAIS</option>
+                <option value="ht">KREYÒL</option>
+                <option value="en">ENGLISH</option>
+                <option value="es">ESPAÑOL</option>
+            </select>
+            <div id="google_translate_element" style="display:none;"></div>
+        </div>
+        <div class="lateral-section">
+            <label class="lateral-label">🔍 Recherche</label>
+            <div class="lateral-recherche">
+                <input type="text" id="recherche" placeholder="Rechercher...">
+                <button id="btnChercher">🔍</button>
+            </div>
+        </div>
+        <div class="lateral-section">
+            <button id="btn-login" class="btn-lateral-connexion">🔑 Connexion</button>
+        </div>
+        <div class="lateral-section">
+            <a href="don.html" class="btn-lateral-don">❤️ Faire un Don</a>
+        </div>
+        <div class="lateral-footer">
+            <p>Educa-Psy © 2025</p>
+            <p>Services psychologiques & éducatifs en Haïti</p>
+        </div>
+    </aside>
+
     <header id="header">
         <div class="header-ligne-haut">
             <section id="logoTitre">
-                <img src="Logo 3.png" alt="Logo" id="logo"> 
+                <img src="Logo 3.png" alt="Logo" id="logo">
                 <h2 id="titre">Educa-Psy</h2>
             </section>
+            <button id="btn-menu-lateral" class="btn-menu-lateral" aria-label="Ouvrir le menu">
+                <span></span><span></span><span></span>
+            </button>
         </div>
         <div class="header-ligne-bas">
             <section id="groupe-menu">
+                <button id="btnMenu">☰ Menu</button>
                 <nav id="liens-deroulants">
                     <a href="index.html" class="item-menu">Accueil</a>
                     <a href="presentation.html" class="item-menu">Présentation</a>
@@ -25,7 +63,100 @@
             </section>
         </div>
     </header>
-    <h1>Nos Services</h1>
-    <p>Cette page est en cours de construction.</p>
+
+    <div class="page-contenu">
+        <h1>Nos Services</h1>
+        <p>
+            Educa-Psy propose une gamme complète de services psychologiques et éducatifs 
+            adaptés aux besoins des enfants, des familles, des enseignants et des institutions haïtiennes.
+        </p>
+
+        <h2>🧠 Évaluation et Soutien Psychologique</h2>
+        <p>
+            Nos psychologues réalisent des bilans psychologiques complets pour identifier les 
+            difficultés d'apprentissage, les troubles du comportement, les traumatismes ou les 
+            troubles émotionnels. Un plan d'intervention personnalisé est ensuite mis en place 
+            pour chaque enfant.
+        </p>
+        <ul>
+            <li>Bilan psychologique individuel</li>
+            <li>Séances de psychothérapie pour enfants et adolescents</li>
+            <li>Soutien psychosocial post-traumatique</li>
+            <li>Gestion du stress et de l'anxiété scolaire</li>
+        </ul>
+
+        <h2>📚 Appui Éducatif et Pédagogique</h2>
+        <p>
+            Nos spécialistes en psychopédagogie accompagnent les enfants en difficulté 
+            scolaire grâce à des stratégies d'apprentissage adaptées et innovantes, 
+            en lien étroit avec les enseignants et les parents.
+        </p>
+        <ul>
+            <li>Remédiation scolaire individualisée</li>
+            <li>Dépistage des troubles DYS (dyslexie, dyscalculie, etc.)</li>
+            <li>Mise en place de plans d'accompagnement personnalisés (PAP)</li>
+            <li>Ateliers de méthodes de travail et d'organisation</li>
+        </ul>
+
+        <h2>👨‍👩‍👧 Formation et Accompagnement des Parents</h2>
+        <p>
+            Les parents sont des partenaires essentiels dans l'éducation de leurs enfants. 
+            Educa-Psy leur propose des ateliers pratiques et des séances de conseil pour 
+            mieux comprendre et soutenir leur enfant au quotidien.
+        </p>
+        <ul>
+            <li>Ateliers parentaux (communication, discipline positive, etc.)</li>
+            <li>Séances de conseil familial</li>
+            <li>Groupes de soutien pour parents d'enfants à besoins spécifiques</li>
+        </ul>
+
+        <h2>🏫 Formation des Enseignants et Directeurs</h2>
+        <p>
+            Nous renforçons les capacités du personnel éducatif à travers des formations 
+            certifiées sur la gestion de classe inclusive, la détection précoce des difficultés 
+            et la communication bienveillante.
+        </p>
+        <ul>
+            <li>Formation en gestion de classe inclusive</li>
+            <li>Ateliers sur la détection précoce des troubles d'apprentissage</li>
+            <li>Formation en premiers secours psychologiques</li>
+            <li>Coaching pédagogique pour enseignants</li>
+        </ul>
+
+        <h2>🏢 Services aux Institutions et Organisations</h2>
+        <p>
+            Educa-Psy accompagne également les ONG, les institutions publiques et les 
+            entreprises dans la gestion du bien-être de leurs équipes et dans la mise 
+            en œuvre de programmes à impact social.
+        </p>
+        <ul>
+            <li>Audit psychosocial en milieu scolaire</li>
+            <li>Conception de programmes éducatifs sur mesure</li>
+            <li>Supervision d'équipes éducatives et sociales</li>
+            <li>Rédaction de rapports d'évaluation et de recommandations</li>
+        </ul>
+
+        <p style="margin-top:32px;">
+            <a href="contact.html" class="btn-voir-plus">Demander un devis ou une consultation</a>
+        </p>
+    </div>
+
+    <footer id="footer">
+        <p>© 2025 Educa-Psy Haiti — Tous droits réservés</p>
+        <p>Contact : <a href="contact.html">Nous écrire</a> | <a href="don.html">Faire un don</a></p>
+    </footer>
+
+    <script type="module" src="script.js"></script>
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'fr',
+                includedLanguages: 'fr,ht,en,es',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                autoDisplay: false
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
