@@ -175,39 +175,38 @@
 
     <!-- VOILE SOMBRE -->
     <div id="voile" class="voile"></div>
-
-    <!-- MENU LATÉRAL -->
-    <aside id="menu-lateral" class="menu-lateral">
-        <button id="btn-fermer-lateral" class="btn-fermer-lateral">✕</button>
-
-        <div class="lateral-section">
-            <label class="lateral-label">🌐 Langue</label>
-            <select id="select-langue">
-                <option value="fr">FRANÇAIS</option>
-                <option value="ht">KREYÒL</option>
-                <option value="en">ENGLISH</option>
-                <option value="es">ESPAÑOL</option>
-            </select>
-            <div id="google_translate_element" style="display:none;"></div>
+<aside id="menu-lateral" class="menu-lateral">
+    <div class="lateral-header">
+        <div class="lateral-header-logo"><img src="Logo 3.png" alt="Logo"><span>Educa-Psy</span></div>
+        <button id="btn-fermer-lateral" class="btn-fermer-lateral">&#10005;</button>
+    </div>
+    <div class="lateral-body">
+        <span class="lateral-label">&#128203; Navigation</span>
+        <nav class="lateral-nav">
+            <a href="index.html" class="lateral-nav-link "><span class="nav-icone">&#127968;</span>Accueil</a>
+            <a href="presentation.html" class="lateral-nav-link "><span class="nav-icone">&#8505;&#65039;</span>Pr&#233;sentation</a>
+            <a href="services.html" class="lateral-nav-link "><span class="nav-icone">&#129504;</span>Services</a>
+            <a href="contact.html" class="lateral-nav-link "><span class="nav-icone">&#9993;&#65039;</span>Contact</a>
+            <a href="don.html" class="lateral-nav-link "><span class="nav-icone">&#10084;&#65039;</span>Faire un Don</a>
+        </nav>
+        <div class="lateral-divider"></div>
+        <span class="lateral-label">&#127760; Langue</span>
+        <select id="select-langue">
+            <option value="fr">Fran&#231;ais</option><option value="ht">Krey&#242;l ayisyen</option>
+            <option value="en">English</option><option value="es">Espa&#241;ol</option>
+        </select>
+        <div id="google_translate_element" style="display:none;"></div>
+        <span class="lateral-label">&#128269; Recherche</span>
+        <div class="lateral-recherche">
+            <input type="text" id="recherche" placeholder="Rechercher...">
+            <button id="btnChercher">&#128269;</button>
         </div>
-
-        <div class="lateral-section">
-            <label class="lateral-label">🔍 Recherche</label>
-            <div class="lateral-recherche">
-                <input type="text" id="recherche" placeholder="Rechercher...">
-                <button id="btnChercher">🔍</button>
-            </div>
-        </div>
-
-        <div class="lateral-section derniere">
-            <a href="don.html" class="btn-lateral-don">❤️ Faire un Don</a>
-        </div>
-
-        <div class="lateral-footer">
-            <p>Educa-Psy © 2025</p>
-            <p>Services psychologiques & éducatifs en Haïti</p>
-        </div>
-    </aside>
+        <div class="lateral-divider"></div>
+        <button id="btn-login" class="btn-lateral-connexion">&#128273; Se connecter</button>
+        <a href="inscription.html" class="btn-lateral-inscription">&#9998;&#65039; Cr&#233;er un compte</a>
+    </div>
+    <div class="lateral-footer"><p>&#169; 2025 Educa-Psy Haiti</p><p>Services psychologiques &amp; &#233;ducatifs</p></div>
+</aside>
 
     <!-- HEADER -->
     <header id="header">
@@ -281,9 +280,56 @@
 
     <!-- FOOTER -->
     <footer id="footer">
-        <p>© 2025 Educa-Psy Haiti — Tous droits réservés</p>
-        <p>Contact : <a href="contact.html">Nous écrire</a> | <a href="don.html">Faire un don</a></p>
-    </footer>
+    <div class="footer-grille">
+        <div class="footer-col footer-col-brand">
+            <div class="footer-brand"><img src="Logo 3.png" alt="Logo"><span>Educa-Psy</span></div>
+            <p>Entreprise sociale ha&#239;tienne de services psychologiques et &#233;ducatifs. Nous accompagnons les enfants, les familles, les enseignants et les institutions vers un mieux-&#234;tre durable.</p>
+            <a href="don.html" class="footer-don-btn">&#10084;&#65039; Soutenir notre mission</a>
+        </div>
+        <div class="footer-col">
+            <h4>Navigation</h4>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="presentation.html">Pr&#233;sentation</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="don.html">Faire un Don</a></li>
+                <li><a href="connexion.html">Connexion</a></li>
+                <li><a href="inscription.html">Cr&#233;er un compte</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Nos Services</h4>
+            <ul>
+                <li><a href="services.html">Soutien Psychologique</a></li>
+                <li><a href="services.html">Appui &#201;ducatif</a></li>
+                <li><a href="services.html">Formation des Parents</a></li>
+                <li><a href="services.html">Formation des Enseignants</a></li>
+                <li><a href="services.html">Services Institutionnels</a></li>
+                <li><a href="services.html">Urgence &amp; Traumatisme</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Contact &amp; R&#233;seaux</h4>
+            <div class="footer-contact-item"><span class="fi">&#128205;</span><span>Port-au-Prince, Ha&#239;ti</span></div>
+            <div class="footer-contact-item"><span class="fi">&#128231;</span><span>contact [at] educa-psy-haiti.com</span></div>
+            <div class="footer-contact-item"><span class="fi">&#128222;</span><span>+509 XX XX XX XX<br>Lun&#8211;Ven, 8h&#8211;17h</span></div>
+            <div class="footer-contact-item"><span class="fi">&#127760;</span><span>educa-psy-haiti.com</span></div>
+            <div class="footer-social">
+                <a href="#" title="Facebook">f</a><a href="#" title="WhatsApp">&#128172;</a>
+                <a href="#" title="LinkedIn">in</a><a href="#" title="Instagram">&#9668;</a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom-barre">
+        <span>&#169; 2025 Educa-Psy Haiti. Tous droits r&#233;serv&#233;s.</span>
+        <div class="footer-bottom-droite">
+            <a href="#">Politique de confidentialit&#233;</a>
+            <a href="#">Conditions d'utilisation</a>
+            <a href="contact.html">Nous &#233;crire</a>
+        </div>
+    </div>
+</footer>
 
     <!-- AUTH.JS pour l'inscription -->
     <script type="module" src="auth.js"></script>
@@ -380,3 +426,4 @@
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
+
