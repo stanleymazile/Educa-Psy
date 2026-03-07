@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -9,30 +8,60 @@
 </head>
 <body>
 
-    <header id="header">
-        <div class="header-ligne-haut">
-            <section id="logoTitre">
-                <img src="Logo 3.png" alt="Logo" id="logo"> 
-                <h2 id="titre">Educa-Psy</h2>
-            </section>
+    <!-- VOILE SOMBRE -->
+    <div id="voile" class="voile"></div>
 
+    <!-- MENU LATÉRAL -->
+    <aside id="menu-lateral" class="menu-lateral">
+        <button id="btn-fermer-lateral" class="btn-fermer-lateral">✕</button>
 
-            <section id="header-droite">
-    <select id="select-langue">
-        <option value="fr">FRANÇAIS</option>
-        <option value="ht">KREYÒL</option> 
-        <option value="en">ENGLISH</option>
-        <option value="es">ESPAÑOL</option>
-    </select>
-    
-    <div id="google_translate_element" style="display:none;"></div>
-    <button id="btn-login">Connexion</button>
-    
-    <a href="don.html" id="btnDon">Don</a>
-</section>
-            
+        <div class="lateral-section">
+            <label class="lateral-label">🌐 Langue</label>
+            <select id="select-langue">
+                <option value="fr">FRANÇAIS</option>
+                <option value="ht">KREYÒL</option>
+                <option value="en">ENGLISH</option>
+                <option value="es">ESPAÑOL</option>
+            </select>
+            <div id="google_translate_element" style="display:none;"></div>
         </div>
 
+        <div class="lateral-section">
+            <label class="lateral-label">🔍 Recherche</label>
+            <div class="lateral-recherche">
+                <input type="text" id="recherche" placeholder="Rechercher...">
+                <button id="btnChercher">🔍</button>
+            </div>
+        </div>
+
+        <div class="lateral-section">
+            <button id="btn-login" class="btn-lateral-connexion">🔑 Connexion</button>
+        </div>
+
+        <div class="lateral-section">
+            <a href="don.html" class="btn-lateral-don">❤️ Faire un Don</a>
+        </div>
+
+        <div class="lateral-footer">
+            <p>Educa-Psy © 2025</p>
+            <p>Services psychologiques & éducatifs en Haïti</p>
+        </div>
+    </aside>
+
+    <!-- HEADER -->
+    <header id="header">
+        <!-- LIGNE 1 : Logo | Titre | Bouton menu latéral -->
+        <div class="header-ligne-haut">
+            <section id="logoTitre">
+                <img src="Logo 3.png" alt="Logo" id="logo">
+                <h2 id="titre">Educa-Psy</h2>
+            </section>
+            <button id="btn-menu-lateral" class="btn-menu-lateral" aria-label="Ouvrir le menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+
+        <!-- LIGNE 2 : Menu navigation simple (inchangé) -->
         <div class="header-ligne-bas">
             <section id="groupe-menu">
                 <button id="btnMenu">☰ Menu</button>
@@ -43,50 +72,116 @@
                     <a href="contact.html" class="item-menu">Contact</a>
                 </nav>
             </section>
-
-            <section id="menuRecherche" class="recherche">
-                <input type="text" id="recherche" placeholder="Rechercher...">
-                <button id="btnChercher">🔍</button>
-            </section>
         </div>
     </header>
 
+    <!-- HERO -->
     <section id="hero">
         <div id="hero-contenu">
             <h1 id="hero-titre">L'éducation pour chaque enfant en Haïti</h1>
-            <a href="services.html" id="btnHero">Découvrir</a>
+            <p id="hero-sous-titre">Accompagnement psychologique et soutien éducatif pour les écoles, institutions et organisations</p>
+            <a href="services.html" id="btnHero">Découvrir nos services</a>
         </div>
     </section>
+
+    <!-- SECTION CHIFFRES -->
+    <section class="section-chiffres">
+        <div class="chiffre-item">
+            <span class="chiffre-nombre">500+</span>
+            <span class="chiffre-label">Enfants accompagnés</span>
+        </div>
+        <div class="chiffre-item">
+            <span class="chiffre-nombre">30+</span>
+            <span class="chiffre-label">Écoles partenaires</span>
+        </div>
+        <div class="chiffre-item">
+            <span class="chiffre-nombre">10+</span>
+            <span class="chiffre-label">Professionnels qualifiés</span>
+        </div>
+        <div class="chiffre-item">
+            <span class="chiffre-nombre">5</span>
+            <span class="chiffre-label">Années d'expérience</span>
+        </div>
+    </section>
+
+    <!-- SECTION MISSION -->
+    <section class="section-mission">
+        <h2 class="section-titre">Notre Mission</h2>
+        <p class="section-texte">
+            Educa-Psy s'engage à fournir un soutien psychologique et éducatif de qualité aux enfants haïtiens, 
+            en collaborant avec les écoles, les familles et les institutions pour créer un environnement 
+            d'apprentissage sain et épanouissant.
+        </p>
+    </section>
+
+    <!-- SECTION SERVICES APERÇU -->
+    <section class="section-services-apercu">
+        <h2 class="section-titre">Nos Services</h2>
+        <div class="services-grille">
+            <div class="service-carte">
+                <div class="service-icone">🧠</div>
+                <h3>Soutien Psychologique</h3>
+                <p>Évaluation et suivi psychologique individualisé pour les enfants en difficulté.</p>
+            </div>
+            <div class="service-carte">
+                <div class="service-icone">📚</div>
+                <h3>Appui Éducatif</h3>
+                <p>Accompagnement scolaire et stratégies d'apprentissage adaptées.</p>
+            </div>
+            <div class="service-carte">
+                <div class="service-icone">👨‍👩‍👧</div>
+                <h3>Formation des Parents</h3>
+                <p>Ateliers et séances d'information pour mieux soutenir les enfants à la maison.</p>
+            </div>
+            <div class="service-carte">
+                <div class="service-icone">🏫</div>
+                <h3>Formation des Enseignants</h3>
+                <p>Renforcement des capacités du personnel éducatif en gestion de classe inclusive.</p>
+            </div>
+        </div>
+        <a href="services.html" class="btn-voir-plus">Voir tous les services</a>
+    </section>
+
+    <!-- SECTION POURQUOI NOUS -->
+    <section class="section-pourquoi">
+        <h2 class="section-titre">Pourquoi Choisir Educa-Psy ?</h2>
+        <div class="pourquoi-liste">
+            <div class="pourquoi-item">
+                <span class="pourquoi-check">✔</span>
+                <p>Une équipe de professionnels certifiés en psychologie et en éducation</p>
+            </div>
+            <div class="pourquoi-item">
+                <span class="pourquoi-check">✔</span>
+                <p>Une approche adaptée au contexte culturel haïtien</p>
+            </div>
+            <div class="pourquoi-item">
+                <span class="pourquoi-check">✔</span>
+                <p>Des services accessibles aux écoles publiques et privées</p>
+            </div>
+            <div class="pourquoi-item">
+                <span class="pourquoi-check">✔</span>
+                <p>Un suivi régulier et des rapports détaillés pour chaque enfant</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="footer">
+        <p>© 2025 Educa-Psy Haiti — Tous droits réservés</p>
+        <p>Contact : <a href="contact.html">Nous écrire</a> | <a href="don.html">Faire un don</a></p>
+    </footer>
+
     <script type="module" src="script.js"></script>
     <script type="text/javascript">
-    function googleTranslateElementInit() {
-        new google.translate.TranslateElement({
-            pageLanguage: 'fr',
-            includedLanguages: 'fr,ht,en,es',
-            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-            autoDisplay: false
-        }, 'google_translate_element');
-    }
-    
-</script>
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'fr',
+                includedLanguages: 'fr,ht,en,es',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                autoDisplay: false
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
