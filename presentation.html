@@ -7,15 +7,53 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+    <div id="voile" class="voile"></div>
+
+    <aside id="menu-lateral" class="menu-lateral">
+        <button id="btn-fermer-lateral" class="btn-fermer-lateral">✕</button>
+        <div class="lateral-section">
+            <label class="lateral-label">🌐 Langue</label>
+            <select id="select-langue">
+                <option value="fr">FRANÇAIS</option>
+                <option value="ht">KREYÒL</option>
+                <option value="en">ENGLISH</option>
+                <option value="es">ESPAÑOL</option>
+            </select>
+            <div id="google_translate_element" style="display:none;"></div>
+        </div>
+        <div class="lateral-section">
+            <label class="lateral-label">🔍 Recherche</label>
+            <div class="lateral-recherche">
+                <input type="text" id="recherche" placeholder="Rechercher...">
+                <button id="btnChercher">🔍</button>
+            </div>
+        </div>
+        <div class="lateral-section">
+            <button id="btn-login" class="btn-lateral-connexion">🔑 Connexion</button>
+        </div>
+        <div class="lateral-section">
+            <a href="don.html" class="btn-lateral-don">❤️ Faire un Don</a>
+        </div>
+        <div class="lateral-footer">
+            <p>Educa-Psy © 2025</p>
+            <p>Services psychologiques & éducatifs en Haïti</p>
+        </div>
+    </aside>
+
     <header id="header">
         <div class="header-ligne-haut">
             <section id="logoTitre">
-                <img src="Logo 3.png" alt="Logo" id="logo"> 
+                <img src="Logo 3.png" alt="Logo" id="logo">
                 <h2 id="titre">Educa-Psy</h2>
             </section>
+            <button id="btn-menu-lateral" class="btn-menu-lateral" aria-label="Ouvrir le menu">
+                <span></span><span></span><span></span>
+            </button>
         </div>
         <div class="header-ligne-bas">
             <section id="groupe-menu">
+                <button id="btnMenu">☰ Menu</button>
                 <nav id="liens-deroulants">
                     <a href="index.html" class="item-menu">Accueil</a>
                     <a href="presentation.html" class="item-menu">Présentation</a>
@@ -25,7 +63,80 @@
             </section>
         </div>
     </header>
-    <h1> Présentation</h1>
-    <p> Educa-Psy est une entreprise sociale haïtienne de services psychologiques et éducatifs aux écoles,  aux institutions et aux organisations</p>
+
+    <div class="page-contenu">
+        <h1>Présentation</h1>
+
+        <p>
+            Educa-Psy est une entreprise sociale haïtienne de services psychologiques et éducatifs 
+            aux écoles, aux institutions et aux organisations. Fondée pour répondre aux besoins 
+            criants en matière de soutien psychologique dans le milieu scolaire haïtien, 
+            Educa-Psy place l'enfant au cœur de toutes ses interventions.
+        </p>
+
+        <h2>Notre Histoire</h2>
+        <p>
+            Née d'un constat simple — trop d'enfants haïtiens traversent des difficultés 
+            d'apprentissage ou des traumatismes sans accompagnement professionnel — Educa-Psy 
+            a été créée par une équipe de psychologues et d'éducateurs engagés, convaincus 
+            que chaque enfant mérite un environnement sûr pour apprendre et grandir.
+        </p>
+
+        <h2>Notre Vision</h2>
+        <p>
+            Une Haïti où chaque enfant, quelle que soit sa condition sociale ou géographique, 
+            bénéficie d'un soutien psychologique et éducatif adapté, lui permettant de développer 
+            son plein potentiel.
+        </p>
+
+        <h2>Notre Mission</h2>
+        <p>
+            Fournir des services psychologiques et éducatifs de qualité, accessibles et adaptés 
+            au contexte culturel haïtien, en partenariat avec les écoles, les familles, 
+            les institutions publiques et les organisations non gouvernementales.
+        </p>
+
+        <h2>Nos Valeurs</h2>
+        <ul>
+            <li><strong>Bienveillance</strong> — Chaque enfant est accueilli avec respect et sans jugement.</li>
+            <li><strong>Excellence</strong> — Des services de haut niveau, fondés sur des pratiques éprouvées.</li>
+            <li><strong>Accessibilité</strong> — Des solutions adaptées aux réalités économiques du terrain.</li>
+            <li><strong>Engagement communautaire</strong> — Travailler main dans la main avec les familles et les communautés.</li>
+            <li><strong>Intégrité</strong> — Transparence et éthique dans toutes nos interventions.</li>
+        </ul>
+
+        <h2>Notre Équipe</h2>
+        <p>
+            Educa-Psy réunit des psychologues cliniciens, des psychopédagogues, des travailleurs 
+            sociaux et des consultants en éducation, tous formés dans des universités reconnues 
+            en Haïti et à l'étranger. Notre équipe pluridisciplinaire garantit une prise en 
+            charge globale et cohérente de chaque bénéficiaire.
+        </p>
+
+        <h2>Nos Partenaires</h2>
+        <p>
+            Nous collaborons avec des écoles publiques et privées, des ONG locales et 
+            internationales, des institutions gouvernementales (MENFP, MSPP) ainsi que 
+            des organismes de coopération internationale pour maximiser notre impact.
+        </p>
+    </div>
+
+    <footer id="footer">
+        <p>© 2025 Educa-Psy Haiti — Tous droits réservés</p>
+        <p>Contact : <a href="contact.html">Nous écrire</a> | <a href="don.html">Faire un don</a></p>
+    </footer>
+
+    <script type="module" src="script.js"></script>
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'fr',
+                includedLanguages: 'fr,ht,en,es',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                autoDisplay: false
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
