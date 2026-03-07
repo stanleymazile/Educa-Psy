@@ -100,17 +100,7 @@ onAuthStateChanged(auth, (user) => {
             };
         } else {
             btnLogin.textContent = '🔑 Connexion';
-            btnLogin.onclick = function() {
-                signInWithPopup(auth, provider)
-                    .then((result) => {
-                        alert("Bienvenue, " + result.user.displayName + " !");
-                    })
-                    .catch((error) => {
-                        console.error("Erreur de connexion :", error.message);
-                        alert("Erreur de connexion. Veuillez réessayer.");
-                    });
-            };
+            btnLogin.onclick = function() { window.location.href = 'connexion.html'; };
         }
     }
 });
-
