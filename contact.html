@@ -7,15 +7,53 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+    <div id="voile" class="voile"></div>
+
+    <aside id="menu-lateral" class="menu-lateral">
+        <button id="btn-fermer-lateral" class="btn-fermer-lateral">✕</button>
+        <div class="lateral-section">
+            <label class="lateral-label">🌐 Langue</label>
+            <select id="select-langue">
+                <option value="fr">FRANÇAIS</option>
+                <option value="ht">KREYÒL</option>
+                <option value="en">ENGLISH</option>
+                <option value="es">ESPAÑOL</option>
+            </select>
+            <div id="google_translate_element" style="display:none;"></div>
+        </div>
+        <div class="lateral-section">
+            <label class="lateral-label">🔍 Recherche</label>
+            <div class="lateral-recherche">
+                <input type="text" id="recherche" placeholder="Rechercher...">
+                <button id="btnChercher">🔍</button>
+            </div>
+        </div>
+        <div class="lateral-section">
+            <button id="btn-login" class="btn-lateral-connexion">🔑 Connexion</button>
+        </div>
+        <div class="lateral-section">
+            <a href="don.html" class="btn-lateral-don">❤️ Faire un Don</a>
+        </div>
+        <div class="lateral-footer">
+            <p>Educa-Psy © 2025</p>
+            <p>Services psychologiques & éducatifs en Haïti</p>
+        </div>
+    </aside>
+
     <header id="header">
         <div class="header-ligne-haut">
             <section id="logoTitre">
-                <img src="Logo 3.png" alt="Logo" id="logo"> 
+                <img src="Logo 3.png" alt="Logo" id="logo">
                 <h2 id="titre">Educa-Psy</h2>
             </section>
+            <button id="btn-menu-lateral" class="btn-menu-lateral" aria-label="Ouvrir le menu">
+                <span></span><span></span><span></span>
+            </button>
         </div>
         <div class="header-ligne-bas">
             <section id="groupe-menu">
+                <button id="btnMenu">☰ Menu</button>
                 <nav id="liens-deroulants">
                     <a href="index.html" class="item-menu">Accueil</a>
                     <a href="presentation.html" class="item-menu">Présentation</a>
@@ -25,7 +63,85 @@
             </section>
         </div>
     </header>
-    <h1>Contactez-nous</h1>
-    <p>Cette page est en cours de construction.</p>
+
+    <div class="page-contenu">
+        <h1>Contactez-nous</h1>
+        <p>
+            Vous souhaitez en savoir plus sur nos services, demander une consultation 
+            ou établir un partenariat ? Remplissez le formulaire ci-dessous ou 
+            utilisez nos coordonnées directes.
+        </p>
+
+        <!-- COORDONNÉES -->
+        <div class="info-contact">
+            <div class="info-contact-item">
+                <strong>📍 Adresse</strong>
+                Port-au-Prince, Haïti<br>
+                (Précisions disponibles sur rendez-vous)
+            </div>
+            <div class="info-contact-item">
+                <strong>📧 Email</strong>
+                contact@educa-psy-haiti.com<br>
+                info@educa-psy-haiti.com
+            </div>
+            <div class="info-contact-item">
+                <strong>📞 Téléphone</strong>
+                +509 XX XX XX XX<br>
+                Lun–Ven, 8h–17h
+            </div>
+            <div class="info-contact-item">
+                <strong>🌐 Réseaux sociaux</strong>
+                Facebook : Educa-Psy Haiti<br>
+                WhatsApp disponible
+            </div>
+        </div>
+
+        <h2>Formulaire de contact</h2>
+
+        <form id="contact-form" class="contact-form">
+            <input type="text" id="nom" placeholder="Votre nom complet *" required>
+            <input type="email" id="email-contact" placeholder="Votre adresse email *" required>
+            <input type="tel" id="tel" placeholder="Votre numéro de téléphone">
+            <select id="sujet">
+                <option value="">-- Objet de votre message --</option>
+                <option value="consultation">Demande de consultation</option>
+                <option value="partenariat">Partenariat institutionnel</option>
+                <option value="formation">Formation d'enseignants</option>
+                <option value="don">Information sur les dons</option>
+                <option value="autre">Autre</option>
+            </select>
+            <textarea id="message" placeholder="Votre message *" required></textarea>
+            <button type="submit">Envoyer le message ✉️</button>
+        </form>
+    </div>
+
+    <footer id="footer">
+        <p>© 2025 Educa-Psy Haiti — Tous droits réservés</p>
+        <p>Contact : <a href="contact.html">Nous écrire</a> | <a href="don.html">Faire un don</a></p>
+    </footer>
+
+    <script type="module" src="script.js"></script>
+    <script>
+        // Formulaire de contact simple
+        const form = document.getElementById('contact-form');
+        if (form) {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert("Merci pour votre message ! Nous vous répondrons dans les plus brefs délais.");
+                form.reset();
+            });
+        }
+    </script>
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'fr',
+                includedLanguages: 'fr,ht,en,es',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                autoDisplay: false
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
