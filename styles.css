@@ -5,22 +5,193 @@ body {
     overflow-x: hidden; 
 }
 
-/* --- HEADER GLOBAL --- */
+/* =====================================================
+   MENU LATÉRAL
+===================================================== */
+.voile {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    z-index: 1100;
+    transition: opacity 0.3s;
+}
+.voile.actif { display: block; }
+
+.menu-lateral {
+    position: fixed;
+    top: 0;
+    right: -320px;
+    width: 300px;
+    height: 100%;
+    background: #fff;
+    box-shadow: -4px 0 24px rgba(0,123,255,0.13);
+    z-index: 1200;
+    display: flex;
+    flex-direction: column;
+    padding: 30px 24px 24px;
+    gap: 0;
+    transition: right 0.35s cubic-bezier(.4,0,.2,1);
+    overflow-y: auto;
+}
+.menu-lateral.ouvert { right: 0; }
+
+.btn-fermer-lateral {
+    align-self: flex-end;
+    background: none;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+    color: #555;
+    margin-bottom: 18px;
+    line-height: 1;
+    padding: 4px 8px;
+    border-radius: 50%;
+    transition: background 0.2s;
+}
+.btn-fermer-lateral:hover { background: #f0f4ff; color: #007bff; }
+
+.lateral-section {
+    border-bottom: 1px solid #f0f0f0;
+    padding: 18px 0;
+}
+.lateral-section:last-of-type { border-bottom: none; }
+
+.lateral-label {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+#select-langue {
+    width: 100%;
+    padding: 9px 12px;
+    border-radius: 8px;
+    border: 1px solid #d0d8e8;
+    background: #f8f9ff;
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    cursor: pointer;
+    outline: none;
+}
+#select-langue:focus { border-color: #007bff; }
+
+.lateral-recherche {
+    display: flex;
+    align-items: center;
+    border: 1px solid #d0d8e8;
+    border-radius: 8px;
+    background: #f8f9ff;
+    overflow: hidden;
+}
+.lateral-recherche input {
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 9px 12px;
+    font-size: 14px;
+    width: 100%;
+}
+.lateral-recherche #btnChercher {
+    background: #007bff;
+    border: none;
+    padding: 9px 14px;
+    cursor: pointer;
+    font-size: 15px;
+    color: white;
+}
+
+.btn-lateral-connexion {
+    width: 100%;
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s;
+    text-align: left;
+    letter-spacing: 0.3px;
+}
+.btn-lateral-connexion:hover { background: #0056cc; }
+
+.btn-lateral-don {
+    display: block;
+    width: 100%;
+    background: linear-gradient(135deg, #ff6b35, #f7c59f);
+    color: white;
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 700;
+    text-align: left;
+    transition: opacity 0.2s;
+    box-sizing: border-box;
+    letter-spacing: 0.3px;
+}
+.btn-lateral-don:hover { opacity: 0.88; }
+
+.lateral-footer {
+    margin-top: auto;
+    padding-top: 20px;
+    border-top: 1px solid #f0f0f0;
+    color: #aaa;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+/* Bouton hamburger latéral */
+.btn-menu-lateral {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 6px;
+    border-radius: 6px;
+    transition: background 0.2s;
+}
+.btn-menu-lateral:hover { background: #f0f4ff; }
+.btn-menu-lateral span {
+    display: block;
+    width: 24px;
+    height: 2.5px;
+    background: #007bff;
+    border-radius: 2px;
+    transition: transform 0.3s;
+}
+
+/* =====================================================
+   HEADER GLOBAL
+===================================================== */
 #header {
     background-color: white;
     border-bottom: 2px solid #007bff;
     display: flex;
-    flex-direction: column; /* Superpose la ligne 1 et la ligne 2 */
-    padding: 10px 4%; /* Marges sur les côtés */
+    flex-direction: column;
+    padding: 10px 4%;
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
-/* --- LIGNE 1 : Logo à gauche, Don à droite --- */
+/* LIGNE 1 : Logo à gauche, Titre au centre, Hamburger à droite */
 .header-ligne-haut {
     display: flex;
-    justify-content: space-between; /* Écarte les éléments aux extrémités */
+    justify-content: space-between;
     align-items: center;
     width: 100%;
     padding-bottom: 12px;
+    position: relative;
 }
 
 #logoTitre { 
@@ -42,35 +213,10 @@ body {
     font-weight: bold;
 }
 
-/* Bloc Langue + Don */
-#header-droite { 
-    display: flex; 
-    align-items: center; 
-    gap: 8px; 
-}
-
-#select-langue { 
-    padding: 4px; 
-    border-radius: 4px; 
-    border: 1px solid #ccc; 
-    font-size: 13px;
-    background: #f8f8f8;
-}
-
-#btnDon { 
-    background-color: #007bff; 
-    color: white; 
-    text-decoration: none; 
-    padding: 8px 14px; 
-    border-radius: 5px; 
-    font-weight: bold; 
-    font-size: 14px;
-}
-
-/* --- LIGNE 2 : Menu à gauche, Recherche à droite --- */
+/* LIGNE 2 : Menu navigation simple (inchangé) */
 .header-ligne-bas {
     display: flex;
-    justify-content: space-between; /* Menu à gauche, barre à droite */
+    justify-content: flex-start;
     align-items: center;
     width: 100%;
     padding-top: 10px;
@@ -88,34 +234,7 @@ body {
     font-size: 14px;
 }
 
-/* Barre de recherche (ID et Classe combinés) */
-#menuRecherche.recherche { 
-    display: flex; 
-    align-items: center; 
-    border: 1px solid #ccc; 
-    padding: 4px 12px; 
-    border-radius: 20px; 
-    background-color: #fafafa;
-    width: 60%; /* Prend la place restante à droite */
-    max-width: 300px;
-}
-
-#recherche { 
-    border: none; 
-    outline: none; 
-    width: 100%; 
-    background: transparent; 
-    font-size: 14px;
-}
-
-#btnChercher { 
-    background: none; 
-    border: none; 
-    cursor: pointer; 
-    font-size: 14px;
-}
-
-/* --- MENU DÉROULANT --- */
+/* MENU DÉROULANT */
 #groupe-menu { position: relative; }
 #liens-deroulants { 
     display: none; 
@@ -138,58 +257,268 @@ body {
 }
 .item-menu:hover { background-color: #f0faff; }
 
-/* --- SECTION HERO --- */
+/* =====================================================
+   SECTION HERO
+===================================================== */
 #hero {
-    background-color: #007bff;
+    background: linear-gradient(135deg, #007bff 0%, #0047b3 100%);
     color: white;
-    height: 400px;
+    min-height: 420px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 0 20px;
+    padding: 40px 20px;
 }
 
 #hero-titre { 
-    font-size: 32px; 
-    margin-bottom: 25px; 
-    line-height: 1.2;
+    font-size: 34px; 
+    margin-bottom: 16px; 
+    line-height: 1.25;
+    max-width: 700px;
+}
+
+#hero-sous-titre {
+    font-size: 16px;
+    max-width: 550px;
+    margin: 0 auto 30px;
+    opacity: 0.9;
+    line-height: 1.6;
 }
 
 #btnHero {
     background-color: white;
     color: #007bff;
     text-decoration: none;
-    padding: 15px 35px;
+    padding: 15px 38px;
     border-radius: 30px;
     font-weight: bold;
+    font-size: 17px;
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+#btnHero:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.18); transform: translateY(-2px); }
+
+/* =====================================================
+   SECTION CHIFFRES
+===================================================== */
+.section-chiffres {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0;
+    background: #f4f8ff;
+    padding: 36px 4%;
+    border-bottom: 1px solid #dde8ff;
+}
+.chiffre-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 36px;
+    border-right: 1px solid #dde8ff;
+}
+.chiffre-item:last-child { border-right: none; }
+.chiffre-nombre {
+    font-size: 38px;
+    font-weight: 800;
+    color: #007bff;
+    line-height: 1;
+}
+.chiffre-label {
+    font-size: 13px;
+    color: #555;
+    margin-top: 6px;
+    text-align: center;
+}
+
+/* =====================================================
+   SECTION MISSION
+===================================================== */
+.section-mission {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 52px 20px;
+    text-align: center;
+}
+.section-titre {
+    font-size: 26px;
+    color: #007bff;
+    margin-bottom: 18px;
+    font-weight: 700;
+}
+.section-texte {
+    font-size: 16px;
+    color: #444;
+    line-height: 1.8;
+}
+
+/* =====================================================
+   SECTION SERVICES APERÇU
+===================================================== */
+.section-services-apercu {
+    background: #f4f8ff;
+    padding: 52px 4%;
+    text-align: center;
+}
+.services-grille {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 24px;
+    max-width: 960px;
+    margin: 0 auto 32px;
+}
+.service-carte {
+    background: white;
+    border-radius: 12px;
+    padding: 28px 20px;
+    box-shadow: 0 2px 12px rgba(0,123,255,0.08);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.service-carte:hover { transform: translateY(-4px); box-shadow: 0 6px 22px rgba(0,123,255,0.14); }
+.service-icone { font-size: 36px; margin-bottom: 14px; }
+.service-carte h3 { font-size: 16px; color: #007bff; margin: 0 0 10px; font-weight: 700; }
+.service-carte p { font-size: 14px; color: #555; line-height: 1.6; margin: 0; }
+.btn-voir-plus {
+    display: inline-block;
+    background: #007bff;
+    color: white;
+    text-decoration: none;
+    padding: 12px 32px;
+    border-radius: 25px;
+    font-weight: 700;
+    font-size: 15px;
+    transition: background 0.2s;
+}
+.btn-voir-plus:hover { background: #0056cc; }
+
+/* =====================================================
+   SECTION POURQUOI
+===================================================== */
+.section-pourquoi {
+    padding: 52px 4%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+.pourquoi-liste { display: flex; flex-direction: column; gap: 16px; margin-top: 10px; }
+.pourquoi-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    background: #f4f8ff;
+    border-radius: 10px;
+    padding: 16px 20px;
+}
+.pourquoi-check {
+    color: #007bff;
     font-size: 18px;
+    font-weight: 900;
+    flex-shrink: 0;
+    margin-top: 2px;
 }
+.pourquoi-item p { margin: 0; font-size: 15px; color: #444; line-height: 1.5; }
 
-/* --- AJUSTEMENTS SPECIFIQUES MOBILE --- */
-@media screen and (max-width: 480px) {
-    #titre { font-size: 18px; }
-    #logo { width: 35px; height: 35px; }
-    #btnDon { padding: 6px 10px; font-size: 13px; }
-    #menuRecherche.recherche { width: 55%; } /* Évite de pousser le bouton menu */
-    #hero-titre { font-size: 26px; }
+/* =====================================================
+   FOOTER
+===================================================== */
+#footer {
+    background: #007bff;
+    color: white;
+    text-align: center;
+    padding: 28px 20px;
+    font-size: 14px;
+    line-height: 2;
 }
+#footer a { color: rgba(255,255,255,0.85); text-decoration: underline; }
 
-/* --- TRADUCTION GOOGLE --- */
+/* =====================================================
+   PAGES INTERNES (présentation, services, contact)
+===================================================== */
+.page-contenu {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 44px 20px;
+}
+.page-contenu h1 {
+    color: #007bff;
+    font-size: 28px;
+    border-bottom: 2px solid #e8f0ff;
+    padding-bottom: 12px;
+    margin-bottom: 24px;
+}
+.page-contenu h2 {
+    color: #0056cc;
+    font-size: 20px;
+    margin-top: 34px;
+    margin-bottom: 10px;
+}
+.page-contenu p { color: #444; line-height: 1.8; font-size: 15px; }
+.page-contenu ul { color: #444; line-height: 2; font-size: 15px; padding-left: 20px; }
+
+/* Formulaire contact */
+.contact-form { display: flex; flex-direction: column; gap: 14px; margin-top: 20px; }
+.contact-form input,
+.contact-form textarea,
+.contact-form select {
+    padding: 11px 14px;
+    border: 1px solid #d0d8e8;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    outline: none;
+    background: #f8f9ff;
+    transition: border 0.2s;
+}
+.contact-form input:focus,
+.contact-form textarea:focus { border-color: #007bff; }
+.contact-form textarea { min-height: 130px; resize: vertical; }
+.contact-form button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 13px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.contact-form button:hover { background: #0056cc; }
+
+/* Carte info contact */
+.info-contact { display: flex; flex-wrap: wrap; gap: 20px; margin-top: 28px; }
+.info-contact-item {
+    background: #f4f8ff;
+    border-radius: 10px;
+    padding: 18px 22px;
+    flex: 1 1 200px;
+    font-size: 14px;
+    color: #444;
+    line-height: 1.7;
+}
+.info-contact-item strong { display: block; color: #007bff; font-size: 15px; margin-bottom: 4px; }
+
+/* =====================================================
+   GOOGLE TRANSLATE — masquage bannière
+===================================================== */
 .goog-te-banner-frame.skiptranslate { display: none !important; }
 body { top: 0px !important; }
 .goog-logo-link { display: none !important; }
 .goog-te-gadget { color: transparent !important; }
 
-#select-langue {
-    padding: 6px 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    background-color: white;
-    font-weight: bold;
-    cursor: pointer;
+/* =====================================================
+   RESPONSIVE MOBILE
+===================================================== */
+@media screen and (max-width: 600px) {
+    #titre { font-size: 17px; }
+    #logo { width: 34px; height: 34px; }
+    #hero-titre { font-size: 24px; }
+    #hero-sous-titre { font-size: 14px; }
+    .chiffre-item { padding: 16px 20px; }
+    .chiffre-nombre { font-size: 28px; }
+    .services-grille { grid-template-columns: 1fr 1fr; }
+    .menu-lateral { width: 82vw; }
 }
-
-/* Déclencheur pour le déploiement */
-/* Vérification du nouveau secret */
+@media screen and (max-width: 400px) {
+    .services-grille { grid-template-columns: 1fr; }
+}
