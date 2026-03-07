@@ -53,8 +53,8 @@ function ouvrirLateral() {
 }
 
 function fermerLateral() {
-    lateral.classList.remove('ouvert');
-    voile.classList.remove('actif');
+    if (lateral) lateral.classList.remove('ouvert');
+    if (voile)   voile.classList.remove('actif');
     document.body.style.overflow = '';
 }
 
@@ -91,11 +91,12 @@ const btnLogin = document.getElementById('btn-login');
 onAuthStateChanged(auth, (user) => {
     if (btnLogin) {
         if (user) {
-            btnLogin.textContent = '👤 ' + user.displayName.split(' ')[0] + ' — Déconnexion';
+            const prenom = user.displayName ? user.displayName.split(' ')[0] : user.email;
+            btnLogin.textContent = '👤 ' + prenom + ' — Déconnexion';
             btnLogin.onclick = function() {
                 signOut(auth).then(() => {
                     btnLogin.textContent = '🔑 Connexion';
-                });
+                }).catch((err) => console.error("Erreur déconnexion :", err.message));
             };
         } else {
             btnLogin.textContent = '🔑 Connexion';
@@ -112,3 +113,4 @@ onAuthStateChanged(auth, (user) => {
         }
     }
 });
+
