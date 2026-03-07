@@ -3,140 +3,164 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Présentation - Educa-Psy</title>
+    <title>Pr&#233;sentation — Educa-Psy</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-    <div id="voile" class="voile"></div>
-
-    <aside id="menu-lateral" class="menu-lateral">
-        <button id="btn-fermer-lateral" class="btn-fermer-lateral">✕</button>
-        <div class="lateral-section">
-            <label class="lateral-label">🌐 Langue</label>
-            <select id="select-langue">
-                <option value="fr">FRANÇAIS</option>
-                <option value="ht">KREYÒL</option>
-                <option value="en">ENGLISH</option>
-                <option value="es">ESPAÑOL</option>
-            </select>
-            <div id="google_translate_element" style="display:none;"></div>
+<div id="voile" class="voile"></div>
+<aside id="menu-lateral" class="menu-lateral">
+    <div class="lateral-header">
+        <div class="lateral-header-logo"><img src="Logo 3.png" alt="Logo"><span>Educa-Psy</span></div>
+        <button id="btn-fermer-lateral" class="btn-fermer-lateral">&#10005;</button>
+    </div>
+    <div class="lateral-body">
+        <span class="lateral-label">&#128203; Navigation</span>
+        <nav class="lateral-nav">
+            <a href="index.html" class="lateral-nav-link "><span class="nav-icone">&#127968;</span>Accueil</a>
+            <a href="presentation.html" class="lateral-nav-link actif"><span class="nav-icone">&#8505;&#65039;</span>Pr&#233;sentation</a>
+            <a href="services.html" class="lateral-nav-link "><span class="nav-icone">&#129504;</span>Services</a>
+            <a href="contact.html" class="lateral-nav-link "><span class="nav-icone">&#9993;&#65039;</span>Contact</a>
+            <a href="don.html" class="lateral-nav-link "><span class="nav-icone">&#10084;&#65039;</span>Faire un Don</a>
+        </nav>
+        <div class="lateral-divider"></div>
+        <span class="lateral-label">&#127760; Langue</span>
+        <select id="select-langue">
+            <option value="fr">Fran&#231;ais</option><option value="ht">Krey&#242;l ayisyen</option>
+            <option value="en">English</option><option value="es">Espa&#241;ol</option>
+        </select>
+        <div id="google_translate_element" style="display:none;"></div>
+        <span class="lateral-label">&#128269; Recherche</span>
+        <div class="lateral-recherche">
+            <input type="text" id="recherche" placeholder="Rechercher...">
+            <button id="btnChercher">&#128269;</button>
         </div>
-        <div class="lateral-section">
-            <label class="lateral-label">🔍 Recherche</label>
-            <div class="lateral-recherche">
-                <input type="text" id="recherche" placeholder="Rechercher...">
-                <button id="btnChercher">🔍</button>
-            </div>
-        </div>
-        <div class="lateral-section">
-            <button id="btn-login" class="btn-lateral-connexion">🔑 Connexion</button>
-        </div>
-        <div class="lateral-section derniere">
-            <a href="don.html" class="btn-lateral-don">❤️ Faire un Don</a>
-        </div>
-        <div class="lateral-footer">
-            <p>Educa-Psy © 2025</p>
-            <p>Services psychologiques & éducatifs en Haïti</p>
-        </div>
-    </aside>
+        <div class="lateral-divider"></div>
+        <button id="btn-login" class="btn-lateral-connexion">&#128273; Se connecter</button>
+        <a href="inscription.html" class="btn-lateral-inscription">&#9998;&#65039; Cr&#233;er un compte</a>
+    </div>
+    <div class="lateral-footer"><p>&#169; 2025 Educa-Psy Haiti</p><p>Services psychologiques &amp; &#233;ducatifs</p></div>
+</aside>
+<header id="header">
+    <div class="header-ligne-haut">
+        <section id="logoTitre"><img src="Logo 3.png" alt="Logo" id="logo"><h2 id="titre">Educa-Psy</h2></section>
+        <button id="btn-menu-lateral" class="btn-menu-lateral" aria-label="Ouvrir le menu"><span></span><span></span><span></span></button>
+    </div>
+    <div class="header-ligne-bas">
+        <section id="groupe-menu">
+            <button id="btnMenu">&#9776; Menu</button>
+            <nav id="liens-deroulants">
+                <a href="index.html" class="item-menu">Accueil</a>
+                <a href="presentation.html" class="item-menu">Pr&#233;sentation</a>
+                <a href="services.html" class="item-menu">Services</a>
+                <a href="contact.html" class="item-menu">Contact</a>
+            </nav>
+        </section>
+    </div>
+</header>
 
-    <header id="header">
-        <div class="header-ligne-haut">
-            <section id="logoTitre">
-                <img src="Logo 3.png" alt="Logo" id="logo">
-                <h2 id="titre">Educa-Psy</h2>
-            </section>
-            <button id="btn-menu-lateral" class="btn-menu-lateral" aria-label="Ouvrir le menu">
-                <span></span><span></span><span></span>
-            </button>
-        </div>
-        <div class="header-ligne-bas">
-            <section id="groupe-menu">
-                <button id="btnMenu">☰ Menu</button>
-                <nav id="liens-deroulants">
-                    <a href="index.html" class="item-menu">Accueil</a>
-                    <a href="presentation.html" class="item-menu">Présentation</a>
-                    <a href="services.html" class="item-menu">Services</a>
-                    <a href="contact.html" class="item-menu">Contact</a>
-                </nav>
-            </section>
-        </div>
-    </header>
+<div class="page-hero">
+    <span class="tag">Qui sommes-nous</span>
+    <h1>Pr&#233;sentation d&#8217;Educa-Psy</h1>
+    <p>Une entreprise sociale ha&#239;tienne d&#233;di&#233;e au bien-&#234;tre psychologique et &#224; la r&#233;ussite &#233;ducative des enfants.</p>
+</div>
+<div class="page-contenu">
+    <h2>Notre Histoire</h2>
+    <p>Educa-Psy est n&#233;e d&#8217;un constat partag&#233; par des professionnels de terrain : trop d&#8217;enfants ha&#239;tiens traversent des difficult&#233;s d&#8217;apprentissage ou des traumatismes sans jamais b&#233;n&#233;ficier d&#8217;un accompagnement professionnel. Face &#224; la raret&#233; des services psychologiques adapt&#233;s au contexte scolaire ha&#239;tien, une &#233;quipe de psychologues, de psychop&#233;dagogues et d&#8217;&#233;ducateurs engag&#233;s a d&#233;cid&#233; d&#8217;agir concr&#232;tement.</p>
+    <p>Fond&#233;e avec la conviction que l&#8217;&#233;ducation de qualit&#233; passe n&#233;cessairement par le bien-&#234;tre de l&#8217;enfant, Educa-Psy a d&#233;velopp&#233; une approche globale, inclusive et culturellement ancr&#233;e, qui place l&#8217;enfant et sa famille au c&#339;ur de chaque intervention.</p>
 
-    <div class="page-contenu">
-        <h1>Présentation</h1>
+    <h2>Notre Vision</h2>
+    <p>Une Ha&#239;ti o&#249; chaque enfant, quelle que soit sa condition sociale, son lieu de r&#233;sidence ou sa situation familiale, b&#233;n&#233;ficie d&#8217;un soutien psychologique et &#233;ducatif adapt&#233; — lui permettant de d&#233;velopper son plein potentiel et de contribuer positivement &#224; sa communaut&#233;.</p>
 
-        <p>
-            Educa-Psy est une entreprise sociale haïtienne de services psychologiques et éducatifs 
-            aux écoles, aux institutions et aux organisations. Fondée pour répondre aux besoins 
-            criants en matière de soutien psychologique dans le milieu scolaire haïtien, 
-            Educa-Psy place l'enfant au cœur de toutes ses interventions.
-        </p>
+    <h2>Notre Mission</h2>
+    <p>Fournir des services psychologiques et &#233;ducatifs de qualit&#233;, accessibles et adapt&#233;s au contexte culturel ha&#239;tien, en partenariat &#233;troit avec les &#233;coles, les familles, les institutions publiques et les organisations non gouvernementales. Nous visons un impact mesurable sur le bien-&#234;tre des enfants, des enseignants et des familles que nous accompagnons.</p>
 
-        <h2>Notre Histoire</h2>
-        <p>
-            Née d'un constat simple — trop d'enfants haïtiens traversent des difficultés 
-            d'apprentissage ou des traumatismes sans accompagnement professionnel — Educa-Psy 
-            a été créée par une équipe de psychologues et d'éducateurs engagés, convaincus 
-            que chaque enfant mérite un environnement sûr pour apprendre et grandir.
-        </p>
-
-        <h2>Notre Vision</h2>
-        <p>
-            Une Haïti où chaque enfant, quelle que soit sa condition sociale ou géographique, 
-            bénéficie d'un soutien psychologique et éducatif adapté, lui permettant de développer 
-            son plein potentiel.
-        </p>
-
-        <h2>Notre Mission</h2>
-        <p>
-            Fournir des services psychologiques et éducatifs de qualité, accessibles et adaptés 
-            au contexte culturel haïtien, en partenariat avec les écoles, les familles, 
-            les institutions publiques et les organisations non gouvernementales.
-        </p>
-
-        <h2>Nos Valeurs</h2>
-        <ul>
-            <li><strong>Bienveillance</strong> — Chaque enfant est accueilli avec respect et sans jugement.</li>
-            <li><strong>Excellence</strong> — Des services de haut niveau, fondés sur des pratiques éprouvées.</li>
-            <li><strong>Accessibilité</strong> — Des solutions adaptées aux réalités économiques du terrain.</li>
-            <li><strong>Engagement communautaire</strong> — Travailler main dans la main avec les familles et les communautés.</li>
-            <li><strong>Intégrité</strong> — Transparence et éthique dans toutes nos interventions.</li>
-        </ul>
-
-        <h2>Notre Équipe</h2>
-        <p>
-            Educa-Psy réunit des psychologues cliniciens, des psychopédagogues, des travailleurs 
-            sociaux et des consultants en éducation, tous formés dans des universités reconnues 
-            en Haïti et à l'étranger. Notre équipe pluridisciplinaire garantit une prise en 
-            charge globale et cohérente de chaque bénéficiaire.
-        </p>
-
-        <h2>Nos Partenaires</h2>
-        <p>
-            Nous collaborons avec des écoles publiques et privées, des ONG locales et 
-            internationales, des institutions gouvernementales (MENFP, MSPP) ainsi que 
-            des organismes de coopération internationale pour maximiser notre impact.
-        </p>
+    <h2>Nos Valeurs</h2>
+    <div class="bloc-valeur">
+        <div class="valeur-item"><strong>&#10084; Bienveillance</strong><p>Chaque enfant est accueilli avec respect, chaleur humaine et sans jugement, quel que soit son parcours.</p></div>
+        <div class="valeur-item"><strong>&#11088; Excellence</strong><p>Des services fond&#233;s sur des pratiques &#233;prouv&#233;es, une formation continue et une rigueur professionnelle constante.</p></div>
+        <div class="valeur-item"><strong>&#128081; Accessibilit&#233;</strong><p>Des solutions tarifaires adapt&#233;es aux r&#233;alit&#233;s &#233;conomiques du terrain, pour ne laisser aucun enfant derri&#232;re.</p></div>
+        <div class="valeur-item"><strong>&#129309; Engagement communautaire</strong><p>Travailler main dans la main avec les familles, les communaut&#233;s et les autorit&#233;s locales pour un impact durable.</p></div>
+        <div class="valeur-item"><strong>&#9878; Int&#233;grit&#233;</strong><p>Transparence totale, &#233;thique professionnelle stricte et confidentialit&#233; absolue dans toutes nos interventions.</p></div>
+        <div class="valeur-item"><strong>&#128161; Innovation</strong><p>Adapter les meilleures pratiques mondiales en psychologie et en &#233;ducation au contexte sp&#233;cifique ha&#239;tien.</p></div>
     </div>
 
-    <footer id="footer">
-        <p>© 2025 Educa-Psy Haiti — Tous droits réservés</p>
-        <p>Contact : <a href="contact.html">Nous écrire</a> | <a href="don.html">Faire un don</a></p>
-    </footer>
+    <h2>Notre &#201;quipe</h2>
+    <p>Educa-Psy r&#233;unit une &#233;quipe pluridisciplinaire de professionnels certifi&#233;s : psychologues cliniciens, neuropsychologues, psychop&#233;dagogues, orthophonistes, travailleurs sociaux et consultants en &#233;ducation. Tous ont &#233;t&#233; form&#233;s dans des universit&#233;s reconnues en Ha&#239;ti et &#224; l&#8217;&#233;tranger (&#201;tats-Unis, France, Canada, Qu&#233;bec).</p>
+    <p>Notre &#233;quipe est compos&#233;e exclusivement de professionnels ha&#239;tiens, convaincus que les solutions durables pour Ha&#239;ti doivent venir de l&#8217;int&#233;rieur, port&#233;es par des personnes qui vivent et comprennent les r&#233;alit&#233;s du pays.</p>
 
-    <script type="module" src="script.js"></script>
-    <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-                pageLanguage: 'fr',
-                includedLanguages: 'fr,ht,en,es',
-                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-                autoDisplay: false
-            }, 'google_translate_element');
-        }
-    </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-</body>
-</html>
+    <h2>Nos Zones d&#8217;Intervention</h2>
+    <p>Educa-Psy intervient principalement dans les d&#233;partements de l&#8217;Ouest (Port-au-Prince, P&#233;tion-Ville, Tabarre, Carrefour), du Nord (Cap-Ha&#239;tien) et de l&#8217;Artibonite (Gonaïves). Des missions ponctuelles sont &#233;galement r&#233;alis&#233;es dans d&#8217;autres r&#233;gions selon les besoins des partenaires.</p>
+
+    <h2>Nos Partenaires Institutionnels</h2>
+    <p>Nous collaborons activement avec :</p>
+    <ul>
+        <li>Le Minist&#232;re de l&#8217;&#201;ducation Nationale et de la Formation Professionnelle (MENFP)</li>
+        <li>Le Minist&#232;re de la Sant&#233; Publique et de la Population (MSPP)</li>
+        <li>Des ONG locales et internationales (UNICEF, Save the Children, IRC, etc.)</li>
+        <li>Des institutions d&#8217;enseignement sup&#233;rieur ha&#239;tiennes</li>
+        <li>Des r&#233;seaux d&#8217;&#233;coles publiques et priv&#233;es &#224; travers le pays</li>
+    </ul>
+</div>
+<section class="section-cta">
+    <h2>Vous souhaitez en savoir plus&#160;?</h2>
+    <p>Notre &#233;quipe est disponible pour r&#233;pondre &#224; toutes vos questions et envisager un partenariat.</p>
+    <a href="contact.html" class="btn-primaire">Nous contacter</a>
+    <a href="services.html" class="btn-secondaire">Voir nos services</a>
+</section>
+<footer id="footer">
+    <div class="footer-grille">
+        <div class="footer-col footer-col-brand">
+            <div class="footer-brand"><img src="Logo 3.png" alt="Logo"><span>Educa-Psy</span></div>
+            <p>Entreprise sociale ha&#239;tienne de services psychologiques et &#233;ducatifs. Nous accompagnons les enfants, les familles, les enseignants et les institutions vers un mieux-&#234;tre durable.</p>
+            <a href="don.html" class="footer-don-btn">&#10084;&#65039; Soutenir notre mission</a>
+        </div>
+        <div class="footer-col">
+            <h4>Navigation</h4>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="presentation.html">Pr&#233;sentation</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="don.html">Faire un Don</a></li>
+                <li><a href="connexion.html">Connexion</a></li>
+                <li><a href="inscription.html">Cr&#233;er un compte</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Nos Services</h4>
+            <ul>
+                <li><a href="services.html">Soutien Psychologique</a></li>
+                <li><a href="services.html">Appui &#201;ducatif</a></li>
+                <li><a href="services.html">Formation des Parents</a></li>
+                <li><a href="services.html">Formation des Enseignants</a></li>
+                <li><a href="services.html">Services Institutionnels</a></li>
+                <li><a href="services.html">Urgence &amp; Traumatisme</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Contact &amp; R&#233;seaux</h4>
+            <div class="footer-contact-item"><span class="fi">&#128205;</span><span>Port-au-Prince, Ha&#239;ti</span></div>
+            <div class="footer-contact-item"><span class="fi">&#128231;</span><span>contact [at] educa-psy-haiti.com</span></div>
+            <div class="footer-contact-item"><span class="fi">&#128222;</span><span>+509 XX XX XX XX<br>Lun&#8211;Ven, 8h&#8211;17h</span></div>
+            <div class="footer-contact-item"><span class="fi">&#127760;</span><span>educa-psy-haiti.com</span></div>
+            <div class="footer-social">
+                <a href="#" title="Facebook">f</a>
+                <a href="#" title="WhatsApp">&#128172;</a>
+                <a href="#" title="LinkedIn">in</a>
+                <a href="#" title="Instagram">&#9668;</a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom-barre">
+        <span>&#169; 2025 Educa-Psy Haiti. Tous droits r&#233;serv&#233;s.</span>
+        <div class="footer-bottom-droite">
+            <a href="#">Politique de confidentialit&#233;</a>
+            <a href="#">Conditions d'utilisation</a>
+            <a href="contact.html">Nous &#233;crire</a>
+        </div>
+    </div>
+</footer>
+<script type="module" src="script.js"></script>
+<script>function googleTranslateElementInit(){new google.translate.TranslateElement({pageLanguage:"fr",includedLanguages:"fr,ht,en,es",layout:google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay:false},"google_translate_element");}</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body></html>
