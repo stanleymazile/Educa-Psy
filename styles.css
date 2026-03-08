@@ -137,16 +137,24 @@ button { font-family: 'DM Sans', sans-serif; }
     display: block;
 }
 .lateral-label:first-child { margin-top: 4px; }
+/* Labels langue et recherche : plus discrets, sans icône */
+.lateral-label-simple {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--texte-doux);
+    margin: 14px 0 5px 2px;
+    display: block;
+}
 
 #select-langue {
     width: 100%;
-    padding: 10px 36px 10px 14px;
-    border-radius: var(--rayon);
-    border: 1.5px solid var(--bord);
+    padding: 8px 32px 8px 10px;
+    border-radius: 8px;
+    border: 1px solid var(--bord);
     background: var(--creme);
     font-family: 'DM Sans', sans-serif;
-    font-size: 14px;
-    font-weight: 600;
+    font-size: 13px;
+    font-weight: 500;
     color: var(--texte);
     cursor: pointer;
     outline: none;
@@ -154,15 +162,15 @@ button { font-family: 'DM Sans', sans-serif; }
     appearance: none;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235a6380' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
-    background-position: right 14px center;
+    background-position: right 10px center;
 }
 #select-langue:focus { border-color: var(--bleu); }
 
 .lateral-recherche {
     display: flex;
     align-items: center;
-    border: 1.5px solid var(--bord);
-    border-radius: var(--rayon);
+    border: 1px solid var(--bord);
+    border-radius: 8px;
     background: var(--creme);
     overflow: hidden;
     transition: border var(--transition);
@@ -172,61 +180,56 @@ button { font-family: 'DM Sans', sans-serif; }
     border: none;
     outline: none;
     background: transparent;
-    padding: 10px 14px;
+    padding: 8px 10px;
     font-family: 'DM Sans', sans-serif;
-    font-size: 14px;
+    font-size: 13px;
     width: 100%;
     color: var(--texte);
 }
 .lateral-recherche input::placeholder { color: var(--texte-doux); }
 #btnChercher {
-    background: var(--bleu);
+    background: none;
     border: none;
-    padding: 10px 14px;
+    border-left: 1px solid var(--bord);
+    padding: 8px 11px;
     cursor: pointer;
-    font-size: 14px;
-    color: var(--blanc);
-    transition: background var(--transition);
+    font-size: 13px;
+    color: var(--texte-doux);
+    transition: color var(--transition);
 }
-#btnChercher:hover { background: var(--bleu-clair); }
+#btnChercher:hover { color: var(--bleu); }
 
+/* Connexion et Créer un compte : texte simple, sans fond, sans icône */
 .btn-lateral-connexion {
     width: 100%;
-    background: var(--bleu);
-    color: var(--blanc);
+    background: none;
+    color: var(--bleu);
     border: none;
-    padding: 12px 16px;
-    border-radius: var(--rayon);
+    padding: 7px 2px;
     font-family: 'DM Sans', sans-serif;
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
-    transition: background var(--transition), transform var(--transition);
     text-align: left;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    transition: color var(--transition);
 }
-.btn-lateral-connexion:hover { background: var(--bleu-clair); transform: translateX(2px); }
+.btn-lateral-connexion:hover { color: var(--bleu-clair); }
 
 .btn-lateral-inscription {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    display: block;
     width: 100%;
-    background: transparent;
-    color: var(--bleu);
-    border: 1.5px solid var(--bleu);
-    padding: 11px 16px;
-    border-radius: var(--rayon);
+    background: none;
+    color: var(--texte-doux);
+    border: none;
+    padding: 7px 2px;
     font-family: 'DM Sans', sans-serif;
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 500;
     box-sizing: border-box;
-    transition: background var(--transition), transform var(--transition);
-    margin-top: 10px;
+    transition: color var(--transition);
+    margin-top: 0;
 }
-.btn-lateral-inscription:hover { background: var(--bleu-pale); transform: translateX(2px); }
+.btn-lateral-inscription:hover { color: var(--bleu); }
 
 .btn-lateral-don {
     display: flex;
@@ -1099,3 +1102,4 @@ button { font-family: 'DM Sans', sans-serif; }
     .footer-bottom-barre { flex-direction: column; text-align: center; }
     .footer-bottom-droite { justify-content: center; }
 }
+
