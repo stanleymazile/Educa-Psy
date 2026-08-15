@@ -1,29 +1,26 @@
 import React, { useState } from 'react';
-import { Menu, X, Heart, BookOpen, Users, Mail, MapPin, Phone, Award } from 'lucide-react';
+import { Menu, X, Heart, BookOpen, Users, Mail, MapPin, Award } from 'lucide-react';
+import './index.css';
 
 export default function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <div className="min-h-screen font-sans text-gray-800 bg-slate-50">
+    <div className="min-h-screen bg-slate-50">
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-slate-100 shadow-sm">
         <div className="max-w-6xl px-4 mx-auto sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            <div className="flex items-center gap-2">
-              <span className="text-2xl font-black tracking-tight text-blue-700">Educa-Psy</span>
-            </div>
+            <span className="text-2xl font-black tracking-tight text-blue-700">Educa-Psy</span>
             
-            {/* Desktop Menu */}
             <div className="hidden space-x-8 md:flex">
-              <a href="#accueil" className="font-medium text-slate-600 hover:text-blue-600">Accueil</a>
-              <a href="#mission" className="font-medium text-slate-600 hover:text-blue-600">Mission</a>
-              <a href="#axes" className="font-medium text-slate-600 hover:text-blue-600">Axes d'action</a>
-              <a href="#partenaires" className="font-medium text-slate-600 hover:text-blue-600">Partenaires</a>
-              <a href="#contact" className="font-medium text-slate-600 hover:text-blue-600">Contact</a>
+              <a href="#accueil" className="nav-link">Accueil</a>
+              <a href="#mission" className="nav-link">Mission</a>
+              <a href="#axes" className="nav-link">Axes d'action</a>
+              <a href="#partenaires" className="nav-link">Partenaires</a>
+              <a href="#contact" className="nav-link">Contact</a>
             </div>
 
-            {/* Mobile Menu Button */}
             <div className="flex items-center md:hidden">
               <button 
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -35,15 +32,14 @@ export default function App() {
           </div>
         </div>
 
-        {/* Mobile Menu */}
         {isMenuOpen && (
           <div className="px-4 pt-2 pb-4 border-b md:hidden bg-white/95 backdrop-blur-md border-slate-100">
             <div className="flex flex-col space-y-3">
-              <a href="#accueil" onClick={() => setIsMenuOpen(false)} className="font-medium text-slate-600">Accueil</a>
-              <a href="#mission" onClick={() => setIsMenuOpen(false)} className="font-medium text-slate-600">Mission</a>
-              <a href="#axes" onClick={() => setIsMenuOpen(false)} className="font-medium text-slate-600">Axes d'action</a>
-              <a href="#partenaires" onClick={() => setIsMenuOpen(false)} className="font-medium text-slate-600">Partenaires</a>
-              <a href="#contact" onClick={() => setIsMenuOpen(false)} className="font-medium text-slate-600">Contact</a>
+              <a href="#accueil" onClick={() => setIsMenuOpen(false)} className="nav-link">Accueil</a>
+              <a href="#mission" onClick={() => setIsMenuOpen(false)} className="nav-link">Mission</a>
+              <a href="#axes" onClick={() => setIsMenuOpen(false)} className="nav-link">Axes d'action</a>
+              <a href="#partenaires" onClick={() => setIsMenuOpen(false)} className="nav-link">Partenaires</a>
+              <a href="#contact" onClick={() => setIsMenuOpen(false)} className="nav-link">Contact</a>
             </div>
           </div>
         )}
@@ -72,7 +68,7 @@ export default function App() {
         </div>
       </header>
 
-      {/* Section Mission & Vision */}
+      {/* Mission */}
       <section id="mission" className="py-20 bg-white">
         <div className="max-w-6xl px-4 mx-auto sm:px-6 lg:px-8">
           <div className="grid items-center grid-cols-1 gap-12 md:grid-cols-2">
@@ -85,7 +81,7 @@ export default function App() {
                 Située à Grand-Goâve, l'organisation **Educa-Psy** propose des programmes ciblés visant l'éducation communautaire, la santé mentale et le développement cognitif des jeunes.
               </p>
               <p className="text-slate-600 leading-relaxed">
-                À travers nos interventions sur le terrain, nous créons des espaces d'apprentissage sûrs et inclusifs favorisant l'apprentissage, la citoyenneté et le bien-être collectif.
+                À travers nos interventions sur le terrain, nous créons des espaces d'apprentissage sûrs et inclusifs favorisant la citoyenneté et le bien-être collectif.
               </p>
             </div>
             <div className="p-8 bg-slate-50 rounded-3xl border border-slate-100 shadow-sm">
@@ -118,44 +114,44 @@ export default function App() {
           </div>
 
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-            <div className="p-8 bg-white rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition">
+            <div className="p-8 bg-white rounded-2xl shadow-sm border border-slate-100 card-hover">
               <div className="flex items-center justify-center w-12 h-12 mb-6 text-blue-600 bg-blue-50 rounded-xl">
                 <Heart size={26} />
               </div>
               <h3 className="mb-3 text-xl font-bold text-slate-900">Soutien Psychosocial</h3>
               <p className="text-sm text-slate-600 leading-relaxed">
-                Accompagnement émotionnel et social des enfants et jeunes pour renforcer leur résilience et leur bien-être.
+                Accompagnement émotionnel et social des enfants et jeunes pour renforcer leur résilience.
               </p>
             </div>
 
-            <div className="p-8 bg-white rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition">
+            <div className="p-8 bg-white rounded-2xl shadow-sm border border-slate-100 card-hover">
               <div className="flex items-center justify-center w-12 h-12 mb-6 text-blue-600 bg-blue-50 rounded-xl">
                 <BookOpen size={26} />
               </div>
               <h3 className="mb-3 text-xl font-bold text-slate-900">Développement Cognitif</h3>
               <p className="text-sm text-slate-600 leading-relaxed">
-                Ateliers éducatifs, soutien scolaire et activités de stimulation intellectuelle adaptées aux besoins locaux.
+                Ateliers éducatifs, soutien scolaire et activités de stimulation intellectuelle.
               </p>
             </div>
 
-            <div className="p-8 bg-white rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition">
+            <div className="p-8 bg-white rounded-2xl shadow-sm border border-slate-100 card-hover">
               <div className="flex items-center justify-center w-12 h-12 mb-6 text-blue-600 bg-blue-50 rounded-xl">
                 <Users size={26} />
               </div>
               <h3 className="mb-3 text-xl font-bold text-slate-900">Mentorat & Jeunesse</h3>
               <p className="text-sm text-slate-600 leading-relaxed">
-                Programmes de parrainage et d'éducation à la citoyenneté pour former les leaders communautaires de demain.
+                Programmes de parrainage et d'éducation à la citoyenneté pour former les leaders de demain.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Partenaires Partenaires officiels */}
+      {/* Partenaires officiels */}
       <section id="partenaires" className="py-16 bg-white border-t border-b border-slate-100">
         <div className="max-w-6xl px-4 mx-auto text-center sm:px-6 lg:px-8">
           <span className="text-xs font-bold tracking-wider text-slate-400 uppercase">Confiance & Collaborations</span>
-          <h2 className="mt-1 mb-10 text-2xl font-bold text-slate-800">Nos Partenaires Partenaires Officiels</h2>
+          <h2 className="mt-1 mb-10 text-2xl font-bold text-slate-800">Nos Partenaires Officiels</h2>
           
           <div className="flex flex-wrap items-center justify-center gap-10 md:gap-16">
             <div className="flex items-center gap-3 px-6 py-4 bg-slate-50 rounded-2xl border border-slate-200/60 shadow-sm">
@@ -170,14 +166,14 @@ export default function App() {
         </div>
       </section>
 
-      {/* Contact Section */}
+      {/* Contact */}
       <section id="contact" className="py-20 bg-slate-900 text-white">
         <div className="max-w-6xl px-4 mx-auto sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
             <div>
               <h2 className="mb-4 text-3xl font-extrabold sm:text-4xl">Contactez-nous</h2>
               <p className="mb-8 text-slate-400">
-                Vous souhaitez en savoir plus sur nos activités, proposer un partenariat ou rejoindre nos initiatives ? Écrivez-nous dès maintenant.
+                Vous souhaitez en savoir plus sur nos activités ou proposer une collaboration ? Écrivez-nous.
               </p>
 
               <div className="space-y-4">
@@ -220,3 +216,4 @@ export default function App() {
     </div>
   );
 }
+
