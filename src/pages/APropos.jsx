@@ -1,9 +1,12 @@
+import { Link } from "react-router-dom";
 import { Sparkles, Target, CheckCircle, Quote } from "lucide-react";
 import { usePageTitle } from "../hooks/usePageTitle.js";
 import Reveal from "../components/Reveal.jsx";
 import PageHero from "../components/PageHero.jsx";
 import SectionHeader from "../components/SectionHeader.jsx";
 import IconCard from "../components/IconCard.jsx";
+import MediaCard from "../components/MediaCard.jsx";
+import { stockImage } from "../utils/images.js";
 import { VALEURS, APPROCHE, PARTENAIRES, ORG_FACTS } from "../data/content.js";
 
 const VISION = [
@@ -17,6 +20,13 @@ const VISION = [
   "Les communautés disposent de davantage de ressources pour faire face aux difficultés sociales",
 ];
 
+// Liens "en savoir plus" pour chaque partenaire : externe si vérifié, sinon
+// vers la page interne la plus pertinente (pas de lien inventé).
+const PARTENAIRE_LINKS = {
+  "AUF — Agence Universitaire de la Francophonie": { href: "https://www.auf.org" },
+  "AJART Haïti": { to: "/programmes#programme-arts-medias" },
+};
+
 export default function APropos() {
   usePageTitle("À propos");
 
@@ -29,31 +39,34 @@ export default function APropos() {
       />
 
       <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
-        <Reveal>
-          <div className="max-w-3xl mx-auto space-y-5 leading-relaxed text-ink">
-            <p>
-              Educa-Psy est une organisation haïtienne à vocation sociale, éducative et psychologique qui œuvre pour
-              promouvoir le bien-être des enfants et des jeunes, renforcer leur autonomie et contribuer au
-              développement des communautés en Haïti.
-            </p>
-            <p>
-              Educa-Psy intervient à travers une approche intégrée combinant psychologie, éducation, prévention,
-              sensibilisation, formation, accompagnement psychosocial et développement communautaire.
-            </p>
-            <p>
-              L'organisation considère que le bien-être psychologique, l'éducation et l'autonomisation constituent
-              des éléments essentiels pour permettre aux enfants et aux jeunes de développer leur potentiel et de
-              participer positivement à la société.
-            </p>
-            <p>Educa-Psy cherche notamment à intervenir dans les écoles, les communautés et auprès des populations vulnérables.</p>
-            <p>
-              Fondée en {ORG_FACTS.foundedYear} à {ORG_FACTS.foundedPlace} par{" "}
-              <strong className="text-navy">{ORG_FACTS.founder}</strong>, psychologue et consultant, avec le
-              soutien de l'Agence Universitaire de la Francophonie (programme RéSACE), Educa-Psy agit aujourd'hui
-              dans {ORG_FACTS.departments} départements d'Haïti : {ORG_FACTS.departmentsList.join(", ")}.
-            </p>
-          </div>
-        </Reveal>
+        <div className="max-w-5xl mx-auto grid lg:grid-cols-5 gap-10 items-start">
+          <Reveal className="lg:col-span-3">
+            <div className="space-y-5 leading-relaxed text-ink">
+              <p>
+                Educa-Psy est une organisation haïtienne à vocation sociale, éducative et psychologique qui œuvre
+                pour promouvoir le bien-être des enfants et des jeunes, renforcer leur autonomie et contribuer au
+                développement des communautés en Haïti.
+              </p>
+              <p>
+                Educa-Psy intervient à travers une approche intégrée combinant psychologie, éducation, prévention,
+                sensibilisation, formation, accompagnement psychosocial et développement communautaire.
+              </p>
+              <p>Educa-Psy cherche notamment à intervenir dans les écoles, les communautés et auprès des populations vulnérables.</p>
+              <p>
+                Fondée en {ORG_FACTS.foundedYear} à {ORG_FACTS.foundedPlace} par{" "}
+                <strong className="text-navy">{ORG_FACTS.founder}</strong>, psychologue et consultant, avec le
+                soutien de l'Agence Universitaire de la Francophonie (programme RéSACE), Educa-Psy agit aujourd'hui
+                dans {ORG_FACTS.departments} départements d'Haïti : {ORG_FACTS.departmentsList.join(", ")} — avec,
+                à ce jour, l'essentiel de ses activités concentré dans l'Ouest, autour de Grand-Goâve.
+              </p>
+            </div>
+          </Reveal>
+          <Reveal className="lg:col-span-2" delay={100}>
+            <div className="rounded-2xl overflow-hidden aspect-[4/5]">
+              <img src={stockImage(2).src} alt={stockImage(2).alt} loading="lazy" className="w-full h-full object-cover" />
+            </div>
+          </Reveal>
+        </div>
       </section>
 
       <section className="border-t border-navy/10">
@@ -75,7 +88,7 @@ export default function APropos() {
         <div className="max-w-5xl mx-auto grid lg:grid-cols-2 gap-12">
           <Reveal>
             <h2 className="font-display text-2xl mb-4 flex items-center gap-2 text-navy">
-              <Target className="w-6 h-6 text-gold" /> Notre mission
+              <Target className="w-6 h-6 text-gold-deep" /> Notre mission
             </h2>
             <p className="leading-relaxed text-ink-soft">
               La mission d'Educa-Psy est de promouvoir le bien-être psychologique, l'éducation et l'autonomisation
@@ -86,7 +99,7 @@ export default function APropos() {
           </Reveal>
           <Reveal delay={100}>
             <h2 className="font-display text-2xl mb-4 flex items-center gap-2 text-navy">
-              <Sparkles className="w-6 h-6 text-gold" /> Notre vision
+              <Sparkles className="w-6 h-6 text-gold-deep" /> Notre vision
             </h2>
             <p className="mb-4 text-ink-soft">Educa-Psy aspire à une société haïtienne dans laquelle :</p>
             <ul className="space-y-2">
@@ -116,7 +129,7 @@ export default function APropos() {
 
       <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <Reveal>
-          <SectionHeader eyebrow="Notre approche" title="Comment nous travaillons" />
+          <SectionHeader eyebrow="Notre approche" title="Comment nous travaillons" to="/programmes" />
         </Reveal>
         <div className="max-w-6xl mx-auto grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {APPROCHE.map((a, i) => (
@@ -133,15 +146,21 @@ export default function APropos() {
         </Reveal>
         <div className="max-w-3xl mx-auto grid sm:grid-cols-2 gap-6">
           {PARTENAIRES.map((p, i) => (
-            <Reveal key={p.name} delay={i * 60}>
-              <IconCard item={{ title: p.name, desc: p.desc, Icon: p.Icon }} />
+            <Reveal key={p.name} delay={i * 80}>
+              <MediaCard
+                image={stockImage(i)}
+                title={p.name}
+                desc={p.desc}
+                to={PARTENAIRE_LINKS[p.name]?.to}
+                href={PARTENAIRE_LINKS[p.name]?.href}
+              />
             </Reveal>
           ))}
         </div>
       </section>
 
       {/* Emplacement honnête pour témoignages — pas de citation inventée */}
-      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
+      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <Reveal>
           <div className="max-w-3xl mx-auto rounded-3xl border-2 border-dashed border-navy/15 p-10 text-center">
             <Quote className="w-8 h-8 mx-auto mb-4 text-navy/30" />
@@ -154,7 +173,7 @@ export default function APropos() {
         </Reveal>
       </section>
 
-      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-white">
+      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
         <Reveal>
           <div className="max-w-3xl mx-auto rounded-3xl p-8 sm:p-10 bg-gold-soft">
             <h2 className="font-display text-xl mb-4 text-navy">En résumé</h2>
@@ -163,11 +182,14 @@ export default function APropos() {
               l'éducation et du développement communautaire. Sa mission est de promouvoir le bien-être, l'éducation
               et l'autonomisation des enfants et des jeunes en Haïti. À travers ses programmes de soutien
               psychosocial, d'intervention scolaire, d'éducation, de mentorat, de jeux d'esprit, de sensibilisation,
-              de formation, de sport, d'éducation numérique, d'environnement, d'éducation financière, de cinéma et
-              de consulting, Educa-Psy cherche à apporter des réponses adaptées aux besoins des communautés.
-              L'organisation accorde une attention particulière aux enfants, aux adolescents, aux jeunes, aux
-              femmes, aux écoles et aux personnes vulnérables.
+              de formation, de sport, d'éducation numérique, d'environnement, d'éducation financière, de cinéma,
+              d'arts &amp; médias et de consulting, Educa-Psy cherche à apporter des réponses adaptées aux besoins
+              des communautés. L'organisation accorde une attention particulière aux enfants, aux adolescents, aux
+              jeunes, aux femmes, aux écoles et aux personnes vulnérables.
             </p>
+            <Link to="/programmes" className="inline-flex items-center gap-1.5 text-sm font-semibold text-navy mt-4 hover:opacity-70 transition-opacity">
+              Voir le détail des programmes →
+            </Link>
           </div>
         </Reveal>
       </section>
