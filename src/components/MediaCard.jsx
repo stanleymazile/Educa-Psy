@@ -45,4 +45,3 @@ export default function MediaCard({ image, title, desc, to, href }) {
   }
   return <div className="h-full">{content}</div>;
 }
-
