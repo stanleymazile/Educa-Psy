@@ -9,4 +9,3 @@ export default function PageHero({ eyebrow, title, desc }) {
     </section>
   );
 }
-
