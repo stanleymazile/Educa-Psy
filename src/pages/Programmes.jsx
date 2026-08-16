@@ -1,5 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { usePageTitle } from "../hooks/usePageTitle.js";
+import { slugify } from "../utils/slugify.js";
+import { stockImage } from "../utils/images.js";
 import Reveal from "../components/Reveal.jsx";
 import PageHero from "../components/PageHero.jsx";
 import SectionHeader from "../components/SectionHeader.jsx";
@@ -8,7 +11,16 @@ import { DOMAINES, PROGRAMMES, AXES } from "../data/content.js";
 
 export default function Programmes() {
   usePageTitle("Programmes");
+  const location = useLocation();
   const [openIdx, setOpenIdx] = useState(0);
+
+  useEffect(() => {
+    if (location.hash) {
+      const target = location.hash.replace("#programme-", "");
+      const idx = PROGRAMMES.findIndex((p) => slugify(p.title) === target);
+      if (idx >= 0) setOpenIdx(idx);
+    }
+  }, [location.hash]);
 
   return (
     <div>
@@ -18,7 +30,20 @@ export default function Programmes() {
         desc="Une approche intégrée combinant psychologie, éducation, prévention et innovation."
       />
 
-      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
+      <section className="py-12 px-4 sm:px-6 lg:px-8">
+        <Reveal>
+          <div className="max-w-3xl mx-auto rounded-2xl overflow-hidden aspect-[21/9]">
+            <img
+              src={stockImage(1).src}
+              alt={stockImage(1).alt}
+              loading="lazy"
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </Reveal>
+      </section>
+
+      <section className="py-10 sm:py-14 px-4 sm:px-6 lg:px-8">
         <Reveal>
           <div className="max-w-4xl mx-auto text-center">
             <span className="font-mono text-xs uppercase tracking-widest text-gold-deep">{DOMAINES.length} domaines d'intervention</span>
@@ -37,7 +62,11 @@ export default function Programmes() {
       <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-4xl mx-auto">
           <Reveal>
-            <SectionHeader eyebrow="En détail" title="Nos 17 programmes" desc="Sélectionnez un programme pour en découvrir le détail." />
+            <SectionHeader
+              eyebrow="En détail"
+              title={`Nos ${PROGRAMMES.length} programmes`}
+              desc="Cliquez sur un programme pour en découvrir le détail — chaque titre est aussi un lien direct, partageable."
+            />
           </Reveal>
           <div className="space-y-3">
             {PROGRAMMES.map((p, idx) => (
