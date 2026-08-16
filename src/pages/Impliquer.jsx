@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, CheckCircle, GraduationCap, Handshake, Heart, School, Smartphone, UserCheck, Users } from "lucide-react";
+import { ArrowRight, ArrowUpRight, CheckCircle, GraduationCap, Handshake, Heart, School, Smartphone, UserCheck, Users } from "lucide-react";
 import { usePageTitle } from "../hooks/usePageTitle.js";
 import Reveal from "../components/Reveal.jsx";
 import PageHero from "../components/PageHero.jsx";
+import { stockImage } from "../utils/images.js";
 import { ORG_FACTS } from "../data/content.js";
 
 const POUR_JEUNES = [
@@ -18,6 +19,7 @@ const POUR_ECOLES = [
   "Gestion des émotions", "Prévention des violences", "Accompagnement des élèves",
 ];
 
+// 4 styles bien distincts pour que les 4 cartes ne se confondent jamais entre elles.
 const PARCOURS = [
   {
     key: "benevole",
@@ -26,7 +28,8 @@ const PARCOURS = [
     desc: "Les bénévoles contribuent dans l'éducation, la psychologie, la sensibilisation, les activités avec les enfants et les jeunes, la communication, le numérique et les événements.",
     cta: "Je m'engage",
     sujet: "Bénévolat",
-    dark: true,
+    image: stockImage(0),
+    style: "dark",
   },
   {
     key: "mentor",
@@ -35,7 +38,8 @@ const PARCOURS = [
     desc: "Les mentors accompagnent les jeunes dans leurs études, leur orientation, leur développement personnel, leur entrepreneuriat et leurs projets communautaires.",
     cta: "Je deviens mentor",
     sujet: "Devenir mentor",
-    dark: false,
+    image: stockImage(2),
+    style: "outline",
   },
   {
     key: "ecole",
@@ -44,19 +48,27 @@ const PARCOURS = [
     desc: "Soutien psychologique, prévention, clubs d'échecs, formations : discutons d'un partenariat adapté à votre établissement.",
     cta: "Proposer un partenariat",
     sujet: "Programme scolaire",
-    dark: false,
-    accentGreen: true,
+    image: stockImage(1),
+    style: "green",
   },
   {
     key: "partenaire",
     Icon: Handshake,
     title: "Institution, bailleur ou partenaire ?",
-    desc: "Vous représentez une organisation, un bailleur ou une institution ? Proposez un partenariat via notre formulaire dédié.",
+    desc: "Pour un bailleur, une institution ou une organisation, notre formulaire dédié est le chemin le plus rapide — plutôt que le formulaire de contact général.",
     cta: "Remplir le formulaire",
     href: ORG_FACTS.partnershipFormUrl,
-    dark: false,
+    image: stockImage(2),
+    style: "gold",
   },
 ];
+
+const STYLES = {
+  dark: { card: "bg-navy", badge: "bg-gold/15", icon: "text-gold", title: "text-white", desc: "text-white/70", btn: "bg-gold text-navy" },
+  outline: { card: "bg-white border border-navy/15", badge: "bg-navy/5", icon: "text-navy", title: "text-navy", desc: "text-ink-soft", btn: "bg-navy text-white" },
+  green: { card: "bg-green-soft border border-green/20", badge: "bg-white", icon: "text-green", title: "text-navy", desc: "text-ink-soft", btn: "bg-green text-white" },
+  gold: { card: "bg-gold-soft border border-gold/30", badge: "bg-white", icon: "text-gold-deep", title: "text-navy", desc: "text-ink-soft", btn: "bg-navy text-white" },
+};
 
 export default function Impliquer() {
   usePageTitle("S'impliquer");
@@ -69,7 +81,7 @@ export default function Impliquer() {
         <div className="max-w-5xl mx-auto grid lg:grid-cols-2 gap-12">
           <Reveal>
             <h2 className="font-display text-2xl mb-4 flex items-center gap-2 text-navy">
-              <GraduationCap className="w-6 h-6 text-gold" /> Educa-Psy et les jeunes
+              <GraduationCap className="w-6 h-6 text-gold-deep" /> Educa-Psy et les jeunes
             </h2>
             <p className="mb-4 text-ink-soft">Les jeunes occupent une place centrale dans notre vision. Nous souhaitons leur permettre de :</p>
             <ul className="space-y-2">
@@ -83,7 +95,7 @@ export default function Impliquer() {
           </Reveal>
           <Reveal delay={100}>
             <h2 className="font-display text-2xl mb-4 flex items-center gap-2 text-navy">
-              <School className="w-6 h-6 text-gold" /> Educa-Psy et les écoles
+              <School className="w-6 h-6 text-gold-deep" /> Educa-Psy et les écoles
             </h2>
             <p className="mb-4 text-ink-soft">L'école est un partenaire stratégique. Nous travaillons avec les établissements scolaires pour développer :</p>
             <ul className="space-y-2">
@@ -101,7 +113,7 @@ export default function Impliquer() {
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
         <Reveal>
           <div className="max-w-3xl mx-auto text-center">
-            <Smartphone className="w-7 h-7 mx-auto mb-4 text-gold" />
+            <Smartphone className="w-7 h-7 mx-auto mb-4 text-gold-deep" />
             <h2 className="font-display text-2xl mb-3 text-navy">Educa-Psy et le numérique</h2>
             <p className="mb-4 text-ink-soft">
               Nous développons une forte présence numérique : site web institutionnel, application mobile, contenus
@@ -119,10 +131,10 @@ export default function Impliquer() {
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <Reveal>
           <div className="max-w-3xl mx-auto text-center">
-            <Users className="w-7 h-7 mx-auto mb-4 text-gold" />
+            <Users className="w-7 h-7 mx-auto mb-4 text-gold-deep" />
             <h2 className="font-display text-2xl mb-3 text-navy">Notre équipe</h2>
             <p className="text-ink-soft">
-              Educa-Psy a été fondée par <strong className="text-navy">Stanley Mazile</strong>, psychologue et
+              Educa-Psy a été fondée par <strong className="text-navy">{ORG_FACTS.founder}</strong>, psychologue et
               consultant. L'organisation s'appuie sur une équipe pluridisciplinaire de professionnels,
               collaborateurs et bénévoles engagés en psychologie, éducation, travail social, communication,
               développement communautaire, numérique et formation.
@@ -131,38 +143,32 @@ export default function Impliquer() {
         </Reveal>
       </section>
 
-      {/* 4 parcours d'engagement, y compris "école" et "partenaire institutionnel" bien visibles */}
+      {/* 4 parcours visuellement distincts, chacun avec image + titre-lien */}
       <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-5xl mx-auto grid sm:grid-cols-2 gap-8">
           {PARCOURS.map((p, i) => {
-            const btnClass = `inline-flex items-center gap-2 font-semibold px-5 py-2.5 rounded-full text-sm w-fit transition-transform hover:scale-105 ${
-              p.dark ? "bg-gold text-navy" : p.accentGreen ? "bg-green text-white" : "bg-navy text-white"
-            }`;
+            const s = STYLES[p.style];
+            const titleLink = p.href ? { href: p.href, target: "_blank", rel: "noopener noreferrer" } : { to: "/contact", state: { sujet: p.sujet } };
+            const TitleTag = p.href ? "a" : Link;
             return (
               <Reveal key={p.key} delay={i * 80}>
-                <div
-                  className={`rounded-3xl p-8 h-full flex flex-col ${
-                    p.dark ? "bg-navy" : p.accentGreen ? "bg-green-soft border border-green/20" : "bg-gold-soft border border-gold/30"
-                  }`}
-                >
-                  <div
-                    className={`w-12 h-12 rounded-xl flex items-center justify-center mb-5 ${
-                      p.dark ? "bg-gold/15" : "bg-white"
-                    }`}
-                  >
-                    <p.Icon className={`w-6 h-6 ${p.dark ? "text-gold" : p.accentGreen ? "text-green" : "text-gold-deep"}`} />
+                <div className={`rounded-3xl overflow-hidden h-full flex flex-col ${s.card}`}>
+                  <div className="aspect-[16/9] overflow-hidden">
+                    <img src={p.image.src} alt={p.image.alt} loading="lazy" className="w-full h-full object-cover" />
                   </div>
-                  <h3 className={`font-display text-xl mb-3 ${p.dark ? "text-white" : "text-navy"}`}>{p.title}</h3>
-                  <p className={`text-sm mb-6 leading-relaxed flex-1 ${p.dark ? "text-white/70" : "text-ink-soft"}`}>{p.desc}</p>
-                  {p.href ? (
-                    <a href={p.href} target="_blank" rel="noopener noreferrer" className={btnClass}>
+                  <div className="p-8 flex-1 flex flex-col">
+                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-5 ${s.badge}`}>
+                      <p.Icon className={`w-6 h-6 ${s.icon}`} />
+                    </div>
+                    <TitleTag {...titleLink} className="group inline-flex items-start gap-1.5 mb-3">
+                      <h3 className={`font-display text-xl ${s.title}`}>{p.title}</h3>
+                      <ArrowUpRight className={`w-4 h-4 flex-shrink-0 mt-1.5 opacity-50 ${s.title}`} />
+                    </TitleTag>
+                    <p className={`text-sm mb-6 leading-relaxed flex-1 ${s.desc}`}>{p.desc}</p>
+                    <TitleTag {...titleLink} className={`inline-flex items-center gap-2 font-semibold px-5 py-2.5 rounded-full text-sm w-fit transition-transform hover:scale-105 ${s.btn}`}>
                       {p.cta} <ArrowRight className="w-4 h-4" />
-                    </a>
-                  ) : (
-                    <Link to="/contact" state={{ sujet: p.sujet }} className={btnClass}>
-                      {p.cta} <ArrowRight className="w-4 h-4" />
-                    </Link>
-                  )}
+                    </TitleTag>
+                  </div>
                 </div>
               </Reveal>
             );
